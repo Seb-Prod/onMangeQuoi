@@ -26,7 +26,7 @@
  *
  * @throws Exception Si les paramètres ne sont pas des chaînes de caractères
  */
-function generateInput($label, $name, $type = "text", $value = "", $validation = "", $message="")
+function generateInput($label, $name, $type = "text", $value = "", $validation = "")
 {
     return '
     <div class="input-group input-group-sm mb-3">
@@ -37,9 +37,6 @@ function generateInput($label, $name, $type = "text", $value = "", $validation =
                id="' . htmlspecialchars($name) . '"
                value="' . htmlspecialchars($value) . '"
                aria-label="' . htmlspecialchars($label) . '" 
-               aria-describedby="inputGroup-' . htmlspecialchars($name) . '">
-        <div class="invalid-feedback">
-             '.htmlspecialchars($message).'
-        </div>
+               aria-describedby="inputGroup-' . htmlspecialchars($name) . '" required>
     </div>';
 }

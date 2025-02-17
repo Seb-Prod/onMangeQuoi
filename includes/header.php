@@ -1,4 +1,5 @@
 <?php
+session_start();
 $titrePage = isset($titrePage) ? $titrePage : 'Seb-Prod';
 ?>
 <!DOCTYPE html>

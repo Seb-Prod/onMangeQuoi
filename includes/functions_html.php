@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Génère un champ de formulaire HTML avec un label dans un groupe Bootstrap
  *
@@ -25,18 +26,20 @@
  *
  * @throws Exception Si les paramètres ne sont pas des chaînes de caractères
  */
-function generateInput($label, $name, $type = "text", $placeholder = "", $value = "", $size = "sm")
+function generateInput($label, $name, $type = "text", $value = "", $validation = "", $message="")
 {
     return '
-    <div class="input-group input-group-' . htmlspecialchars($size) . ' mb-3">
+    <div class="input-group input-group-sm mb-3">
         <span class="input-group-text" id="inputGroup-' . htmlspecialchars($name) . '">' . htmlspecialchars($label) . '</span>
         <input type="' . htmlspecialchars($type) . '" 
-               class="form-control" 
+               class="form-control ' . $validation . '" 
                name="' . htmlspecialchars($name) . '" 
-               id="' . htmlspecialchars($name) . '" 
-               placeholder="' . htmlspecialchars($placeholder) . '"
+               id="' . htmlspecialchars($name) . '"
                value="' . htmlspecialchars($value) . '"
                aria-label="' . htmlspecialchars($label) . '" 
                aria-describedby="inputGroup-' . htmlspecialchars($name) . '">
+        <div class="invalid-feedback">
+             '.htmlspecialchars($message).'
+        </div>
     </div>';
 }

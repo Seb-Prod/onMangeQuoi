@@ -21,8 +21,6 @@ $email = "";
 $pseudo = "";
 $passValid = "";
 
-monVarDump($_SESSION);
-
 // Récupère si c'est la création d'un compte
 if (isset($_GET['newUser']) && $_GET['newUser'] === "true") {
     $newUser = (bool)$_GET['newUser'];

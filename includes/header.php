@@ -1,6 +1,8 @@
 <?php
 session_start();
 $titrePage = isset($titrePage) ? $titrePage : 'Seb-Prod';
+$connection = isset($_SESSION['nom']) ? true : false;
+$admin = isset($_SESSION['admin']) && $_SESSION['admin'] === 1 ? true : false;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,16 +28,28 @@ $titrePage = isset($titrePage) ? $titrePage : 'Seb-Prod';
                 <div
                     class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb2 mb-lg-0">
-                        <li class="nav-item">
-                            <a href="logIn.php" class="nav-link">LogIn
-                            <i class="fa-solid fa-right-to-bracket"></i>
+                        <?php if (!$connection) : ?>
+                            <li class="nav-item">
+                                <a href="logIn.php" class="nav-link">
+                                    <i class="fa-solid fa-right-to-bracket"></i>
+                                    LogIn
+                                </a>
+                            </li>
+                        <?php else : ?>
+                            <li class="nav-item">
+                                <a href="result/logOut.php" class="nav-link">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    LogOut
+                                </a>
+                            </li>
+                        <?php endif ?>
+                        <?php if ($admin) : ?>
+                            <a href="#" class="nav-link">
+                                <i class="fa-solid fa-gear"></i>
+                                Admin
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">LogOut
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                            </a>
-                        </li>
+
+                        <?php endif ?>
                     </ul>
                 </div>
             </div>

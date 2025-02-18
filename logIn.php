@@ -23,6 +23,7 @@ $passValid = "";
 
 monVarDump($_SESSION);
 
+// Récupère si c'est la création d'un compte
 if (isset($_GET['newUser']) && $_GET['newUser'] === "true") {
     $newUser = (bool)$_GET['newUser'];
 }
@@ -56,16 +57,12 @@ if (isset($_SESSION['pass'])) {
 // Récupère si le compte est bien créé
 if (isset($_SESSION['newUser']) && $_SESSION['newUser'] === 'true') {
     $newUserOk = true;
-}else{
+} else {
     $newUserOk = false;
 }
-unset($_SESSION['newUser']);
 
-$titreCard = $newUser ? "Créer un compte" : "Se connecter";
-$linkUser = $newUser ? "result/newUser.php" : "result/connectionUser.php";
-
-
-
+// raz les variables de session utilisé
+razVarSessionUser();
 
 // Création d'un compte admin si aucun compte n'existe
 if ($userIsEmpty['result']) {
@@ -77,7 +74,8 @@ if ($userIsEmpty['result']) {
     exit();
 }
 
-
+$titreCard = $newUser ? "Créer un compte" : "Se connecter";
+$linkUser = $newUser ? "result/newUser.php" : "result/connectionUser.php";
 
 ?>
 <div class="d-flex justify-content-center align-items-center">

@@ -5,15 +5,6 @@ require_once '../includes/connection.php';
 require_once '../includes/functions.php';
 require_once '../includes/functions_users.php';
 
-function razSession()
-{
-    unset($_SESSION["newUser_pseudo"]);
-    unset($_SESSION["newUser_nom"]);
-    unset($_SESSION["newUser_prenom"]);
-    unset($_SESSION["newUser_email"]);
-    unset($_SESSION["pass"]);
-}
-
 if (checkRequiredFields(['pseudo', 'nom', 'prenom', 'email', 'password', 'confirm'], $_POST)) {
     $_SESSION["newUser_pseudo"] = cleanInput($_POST['pseudo'] ?? '');
     $_SESSION["newUser_nom"] = cleanInput($_POST['nom'] ?? '');
@@ -25,7 +16,7 @@ if (checkRequiredFields(['pseudo', 'nom', 'prenom', 'email', 'password', 'confir
     if (($_POST['password'] === $_POST['confirm']) && $pass != "") {
         $result = addUser($pdo, $_SESSION["newUser_pseudo"], $_SESSION["newUser_nom"], $_SESSION["newUser_prenom"], $_SESSION["newUser_email"], $pass, 0);
         if ($result['result']) {
-            razSession();
+            razVarSessionUser();
             $_SESSION["newUser"] = "true";
             header("Location: ../logIn.php");
             exit();

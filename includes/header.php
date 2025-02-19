@@ -37,6 +37,12 @@ $admin = isset($_SESSION['admin']) && $_SESSION['admin'] === 1 ? true : false;
                             </li>
                         <?php else : ?>
                             <li class="nav-item">
+                                <a href="recettes.php" class="nav-link">
+                                    <i class="fa-solid fa-plus"></i>
+                                    Ajouter une recette
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="result/logOut.php" class="nav-link">
                                     <i class="fa-solid fa-right-from-bracket"></i>
                                     LogOut

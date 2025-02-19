@@ -2,7 +2,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background:white;
+    background: white;
 }
 
 main {
@@ -20,4 +20,12 @@ header {
 
 footer {
     margin-top: auto;
+}
+
+input[type="number"] {
+    text-align: right;
+}
+
+.fixed-width{
+    width: 6rem;
 }

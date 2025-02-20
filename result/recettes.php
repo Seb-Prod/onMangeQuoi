@@ -263,5 +263,6 @@ if (!$stepResult['success']) {
 
 // Succès
 $_SESSION['success'] = "Recette ajoutée avec succès !";
+$_SESSION['recipe'] = $cleanData['nom'];
 header('Location: ../recetteValide.php');
 exit();

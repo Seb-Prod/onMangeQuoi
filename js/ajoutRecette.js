@@ -14,7 +14,7 @@ function addIngredient() {
   nomDiv.classList.add("input-group", "input-group-sm", "mb-3");
   nomDiv.innerHTML = `
         <span class="input-group-text fixed-width">Nom</span>
-        <input type="text" class="form-control" name="ingredient_nom[]" autocomplete="off" required>
+        <input type="text" class="form-control" name="ingredient_nom[]" autocomplete="off" required list="listIngredient">
     `;
 
   // Add quantité div

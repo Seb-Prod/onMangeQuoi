@@ -15,6 +15,7 @@ if (checkRequiredFields(['pseudo', 'password'], $_POST)) {
     monVarDump($result);
 
     if ($result['result']) {
+        $_SESSION['id'] = $result['data']['id'];
         $_SESSION['nom'] = $result['data']['nom'];
         $_SESSION['prenom'] = $result['data']['prenom'];
         $_SESSION['pseudo'] = $result['data']['pseudo'];

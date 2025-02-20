@@ -170,5 +170,6 @@ $unitesMesure = $unitesMesure ? array_column($unitesMesure, 'nom') : [];
         </button>
     </div>
 </form>
+<a href="result/recettes.php">test</a>
 <!-- Fin du contenu de la page -->
 <?php require_once 'includes/footer.php' ?>

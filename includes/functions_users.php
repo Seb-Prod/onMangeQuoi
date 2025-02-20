@@ -57,7 +57,7 @@ function addUser($pdo, $pseudo, $nom, $prenom, $email, $pass, $admin)
 function userConect($pdo, $pseudo, $pass)
 {
     try {
-        $sql = "SELECT pseudo,nom,prenom, pass, admin FROM users WHERE pseudo = :pseudo LIMIT 1";
+        $sql = "SELECT id, pseudo,nom,prenom, pass, admin FROM users WHERE pseudo = :pseudo LIMIT 1";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([':pseudo' => $pseudo]);
 
@@ -69,6 +69,7 @@ function userConect($pdo, $pseudo, $pass)
                 return [
                     'result' => true,
                     'data' => [
+                        'id' => $user['id'],
                         'nom' => $user['nom'],
                         'prenom' => $user['prenom'],
                         'pseudo' => $user['pseudo'],

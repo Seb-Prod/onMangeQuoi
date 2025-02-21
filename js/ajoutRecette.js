@@ -1,121 +1,139 @@
 function addIngredient() {
   let container = document.getElementById("ingredients");
 
-  // Create ingredient group container
-  let ingredientGroup = document.createElement("div");
-  ingredientGroup.classList.add("ingredient-group");
+  // Créer le conteneur pour l'ingrédient
+  let ingredientContainer = document.createElement("div");
+  ingredientContainer.classList.add("ingredient-container");
 
-  // Add initial hr
-  let initialHr = document.createElement("hr");
-  ingredientGroup.appendChild(initialHr);
-
-  // Add nom div
+  // Ajouter le nom
   let nomDiv = document.createElement("div");
   nomDiv.classList.add("input-group", "input-group-sm", "mb-3");
   nomDiv.innerHTML = `
-        <span class="input-group-text fixed-width">Nom</span>
-        <input type="text" class="form-control" name="ingredient_nom[]" autocomplete="off" required list="listIngredient">
-    `;
+      <span class="input-group-text fixed-width">Nom</span>
+      <input 
+          type="text" 
+          class="form-control" 
+          name="ingredient_nom[]"
+          autocomplete="off"
+          required
+          list="listIngredient">
+      <button type="button" class="btn btn-danger d-flex align-items-center" onclick="removeIngredient(this)">
+          <i class="fa-solid fa-trash-can"></i>
+      </button>
+  `;
 
-  // Add quantité div
+  // Ajouter les quantités
   let qtsDiv = document.createElement("div");
   qtsDiv.classList.add("input-group", "input-group-sm", "mb-3");
   qtsDiv.innerHTML = `
-        <span class="input-group-text fixed-width">Qts</span>
-        <input type="number" class="form-control" name="ingredient_qts[]" min="0" step="0.5" required>
-        <input type="text" class="form-control" name="ingredient_unite[]" placeholder="unité" list="listUnite" autocomplete="off" required>
-        <button type="button" class="btn btn-danger" onclick="removeIngredient(this)"><i class="fa-solid fa-trash-can"></i></button>
-    `;
+      <span class="input-group-text fixed-width">Quantité</span>
+      <input 
+          type="number" 
+          class="form-control"
+          name="ingredient_qts[]" 
+          min="1"
+          value=""
+          required
+          step="0.5">
+      <input 
+          type="text" 
+          class="form-control" 
+          autocomplete="off"
+          name="ingredient_unite[]" 
+          required
+          placeholder="unité" 
+          list="listUnite">
+  `;
 
-  // Append all elements
-  ingredientGroup.appendChild(nomDiv);
-  ingredientGroup.appendChild(qtsDiv);
+  ingredientContainer.appendChild(nomDiv);
+  ingredientContainer.appendChild(qtsDiv);
 
-  container.appendChild(ingredientGroup);
+  // Ajouter un séparateur visuel
+  let hr = document.createElement("hr");
+  ingredientContainer.appendChild(hr);
+
+  container.appendChild(ingredientContainer);
 }
 
 function removeIngredient(button) {
-  // Remove the entire ingredient group
-  let ingredientGroup = button.closest(".ingredient-group");
-  ingredientGroup.remove();
+  // Remonter jusqu'au conteneur parent et le supprimer
+  let container = button.closest(".ingredient-container");
+  container.remove();
 }
 
 function addStep() {
   let container = document.getElementById("instructions");
-  let stepNumber = container.querySelectorAll(".form-floating").length + 1;
+  let stepNumber =
+    container.getElementsByClassName("step-container").length + 1;
 
-  let newStep = document.createElement("div");
-  newStep.classList.add("form-floating", "mb-3", "step-group");
-  newStep.id = `step-${stepNumber}`;
+  let stepContainer = document.createElement("div");
+  stepContainer.classList.add("step-container");
 
-  newStep.innerHTML = `
-    <div class="d-flex gap-2 align-items-center mb-3">
-        <div class="form-floating flex-grow-1">
-            <textarea 
-                class="form-control" 
-                placeholder="Décrivez l'étape ${stepNumber}" 
-                name="etapes[]" 
-                id="etape${stepNumber}" 
-                rows="3" 
-                required
-            ></textarea>
-            <label for="etape${stepNumber}">Étape n°${stepNumber}</label>
-        </div>
-        <button type="button" class="btn btn-danger remove-btn" onclick="removeStep(this)">
-            <i class="fa-solid fa-trash-can"></i>
-        </button>
-    </div>
-    `;
+  stepContainer.innerHTML = `
+      <div class="form-floating mb-3">
+          <div class="d-flex gap-2 align-items-start">
+              <div class="flex-grow-1 form-floating">
+                  <textarea 
+                      class="form-control" 
+                      name="etapes[]" 
+                      required
+                      id="etape${stepNumber}"
+                      style="height: 100px"
+                      placeholder="Décrivez l'étape ici"></textarea>
+                  <label for="etape${stepNumber}">Étape n°${stepNumber}</label>
+              </div>
+              <button type="button" class="btn btn-danger align-self-stretch" onclick="removeStep(this)">
+                  <i class="fa-solid fa-trash-can"></i>
+              </button>
+          </div>
+      </div>
+  `;
 
-  container.appendChild(newStep);
+  container.appendChild(stepContainer);
 }
 
 function removeStep(button) {
-  // Remove the entire step group
-  button.closest(".step-group").remove();
+  let stepContainer = button.closest(".step-container");
+  stepContainer.remove();
   reindexSteps();
 }
 
 function reindexSteps() {
-  let steps = document.querySelectorAll("#instructions .step-group");
+  let steps = document.getElementsByClassName("step-container");
 
-  steps.forEach((step, index) => {
+  Array.from(steps).forEach((step, index) => {
     let stepNumber = index + 1;
-
-    step.id = `step-${stepNumber}`;
-
     let textarea = step.querySelector("textarea");
     let label = step.querySelector("label");
 
-    if (textarea) {
-      textarea.id = `etape${stepNumber}`;
-      textarea.placeholder = `Décrivez l'étape ${stepNumber}`;
-    }
-
-    if (label) {
-      label.setAttribute("for", `etape${stepNumber}`);
-      label.textContent = `Étape n°${stepNumber}`;
-    }
+    textarea.id = `etape${stepNumber}`;
+    label.setAttribute("for", `etape${stepNumber}`);
+    label.textContent = `Étape n°${stepNumber}`;
   });
 }
 
-const forms = document.querySelectorAll("form.needs-validation");
+function hideMessageCard() {
+  const messageCard = document.querySelector(
+    ".card.text-bg-success, .card.text-bg-danger"
+  );
+  if (messageCard) {
+    messageCard.style.display = "none";
+  }
+}
 
-forms.forEach((form) => {
+// Validation du formulaire
+document.querySelectorAll("form.needs-validation").forEach((form) => {
   form.addEventListener("submit", (event) => {
     if (!form.checkValidity()) {
       event.preventDefault();
       event.stopPropagation();
 
-      // Trouvons les champs invalides
+      // Log des champs invalides pour le débogage
       const invalidInputs = form.querySelectorAll(":invalid");
-      console.log("Champs invalides :", invalidInputs);
-
       invalidInputs.forEach((input) => {
-        console.log("Champ invalide :", input.name, "Valeur :", input.value);
+        console.log("Champ invalide:", input.name, "Valeur:", input.value);
       });
-    } else {
-      console.log("Formulaire valide - tentative de soumission");
+      hideMessageCard();
     }
 
     form.classList.add("was-validated");

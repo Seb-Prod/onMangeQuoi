@@ -4,11 +4,11 @@ define('SECURE_ACCESS', true);
 require_once '../includes/connection.php';
 require_once '../class/recette.php';
 
-if(isset($_POST) && !empty($_POST)){
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $recipe = new Recipe($pdo);
     
-        if ($recipe->create($_POST, $_SESSION['id'])) {
+        if ($recipe->create($_POST, $_SESSION['user_id'])) {
             $_SESSION['success'] = "Recette ajoutée avec succès !";
             header('Location: ../recettes.php');
             exit();
@@ -30,11 +30,11 @@ if(isset($_POST) && !empty($_POST)){
         header('Location: ../error.php');
         exit();
     }
-}else{
-    $_SESSION['errors'] = ["Une erreur inattendue s'est produite"];
-        header('Location: ../error.php');
-        exit();
 }
+
+// Si on arrive ici, c'est qu'il n'y a pas eu de POST
+header('Location: ../user.php');
+exit();
 
 
 

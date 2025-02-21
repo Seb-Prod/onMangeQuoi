@@ -1,7 +1,7 @@
 <?php
 session_start();
 $titrePage = isset($titrePage) ? $titrePage : 'Seb-Prod';
-$connection = isset($_SESSION['nom']) ? true : false;
+$connection = isset($_SESSION['pseudo']) ? true : false;
 $admin = isset($_SESSION['admin']) && $_SESSION['admin'] === 1 ? true : false;
 ?>
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ $admin = isset($_SESSION['admin']) && $_SESSION['admin'] === 1 ? true : false;
                     <ul class="navbar-nav me-auto mb2 mb-lg-0">
                         <?php if (!$connection) : ?>
                             <li class="nav-item">
-                                <a href="logIn.php" class="nav-link">
+                                <a href="user.php" class="nav-link">
                                     <i class="fa-solid fa-right-to-bracket"></i>
                                     LogIn
                                 </a>

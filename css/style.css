@@ -2,7 +2,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: white;
+    background: linear-gradient(90deg, #1CB5E0 0%, #127279 100%);
 }
 
 main {

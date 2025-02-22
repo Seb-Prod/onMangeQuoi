@@ -20,7 +20,7 @@ $admin = isset($_SESSION['admin']) && $_SESSION['admin'] === 1 ? true : false;
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a href="index.php" class="navbar-brand">On Monge Quoi ?</a>
+                <a href="index.php" class="navbar-brand">On Mange Quoi ?</a>
                 <button
                     class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

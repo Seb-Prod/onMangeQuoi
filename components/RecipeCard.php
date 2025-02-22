@@ -1,5 +1,4 @@
 <?php
-// components/RecipeCard.php
 class RecipeCard {
     private $recipe;
     private $index;

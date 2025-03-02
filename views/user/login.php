@@ -9,7 +9,7 @@ include 'includes/header.php';
             <h5 class="myh5">Se connecter</h5>
             <form action="" method="post">
                 <?php
-                include  'class/form.php';
+                include  'class/formInput.php';
                 echo (new FormInput("pseudo", "Pseudo"))->render();
                 echo ((new FormInput("pass", "Mot de passe"))->setType('password'))->render();
                 ?>

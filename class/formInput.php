@@ -54,7 +54,7 @@ class FormInput
     }
 
     public function setValue(string $value, bool $validation):self{
-        $this->value = htmlspecialchars($this->value, ENT_QUOTES, 'UTF-8');
+        $this->value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
         
         if($validation){
             $this->validation = "is-valid";

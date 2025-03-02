@@ -1,22 +1,26 @@
 <?php
 $styles = ['card'];
 include 'includes/header.php';
-include  'class/form.php';
-$_POST['data'] =
+include  'class/formInput.php';
+
+//Variable pour les testes
+$debug =
     [
         'nom' => ['value' => 'Drillaud', 'message' => true],
         'prenom' => ['value' => 'Sébastien', 'message' => true],
         'mail' => ['value' => 'sebastien.drillaud@gmail.com', 'message' => true],
-        'pseudo' => ['value' => 'sebT56', 'message' => false],
+        'pseudo' => ['value' => 'sebT56', 'message' => true],
         'pass' => ['value' => '', 'message' => false],
+        'confirmPass' => ['value' => '', 'message' => false]
     ];
+$_POST['data'] = $debug;
 
 //Initialisation des inputs
 $formInputs = [
     'nom' => new FormInput("nom", "Nom"),
     'prenom' => new FormInput("prenom", "Prenom"),
     'pseudo' => new FormInput("pseudo", "Pseudo"),
-    'mail' => (new FormInput("mail", "Email"))->setType("mail"),
+    'mail' => (new FormInput("mail", "Email"))->setType("email"),
     'pass' => (new FormInput("pass", "Mot de passe"))->setType("password"),
     'confirmPass' => (new FormInput("confirmPass", "Confirmer mot de passe"))->setType("password")
 ];
@@ -30,9 +34,6 @@ if (!empty($_POST) && isset($_POST['data'])) {
         }
     }
 }
-
-
-
 
 ?>
 <main>
@@ -50,7 +51,7 @@ if (!empty($_POST) && isset($_POST['data'])) {
                         <a href="?page=login" class="myLink">Se Connecter</a>
                     </div>
                     <div class="col">
-                        <input type="submit" class="btn btn-primary myButton" value="Créer un compte">
+                        <input type="submit" class="btn btn-primary myButton" value="Créer le compte">
                     </div>
                 </div>
             </form>

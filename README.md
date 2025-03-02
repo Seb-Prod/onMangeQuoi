@@ -17,7 +17,8 @@ Cette application web permet aux utilisateurs de planifier leurs repas, ajouter 
 
 ## 🛠️**Technologies Utilisées**
 
-![php](./img/logo_php.png) ![MySQL](./img/logo_MySql.png)  ![php](./img/logo_web.png) ![php](./img/logo_bootstrap.png) 
+![php](./img/logo_php.png) 
+![MySQL](./img/logo_mysql.png)  ![php](./img/logo_web.png) ![php](./img/logo_bootstrap.png) 
 
 ## 🏗️**Installation**
 1️⃣**Cloner le projet**

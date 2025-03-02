@@ -1,0 +1,3 @@
+ErrorDocument 404 /views/404.php
+ErrorDocument 404 views/404.php
+ErrorDocument 404 /onmangequoi/views/404.php

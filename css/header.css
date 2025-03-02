@@ -1,0 +1,130 @@
+header {
+    /* position: fixed; */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: var(--couleurFond);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 30px;
+    width: 100%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.875);
+}
+
+header .logo {
+    display: flex;
+    gap: 15px;
+}
+
+header .logo h1 {
+    color: var(--couleurTexte);
+    font-size: 30px;
+}
+
+header .logo h1 .letter {
+    color: var(--couleurTexte);
+    font-size: 35px;
+    font-weight: bold;
+}
+
+header nav {
+    display: flex;
+    gap: 50px;
+}
+
+header nav a {
+    text-decoration: none;
+    color:var(--couleurTexte);
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    color: color-mix(in srgb, var(--couleurTexte) 70%, white 30%);
+    text-decoration: underline;
+}
+
+header input {
+    display: none;
+}
+
+@media (max-width:820px) {
+    header nav {
+        position: absolute;
+        top: 50px;
+        background-color: var(--couleurFond);
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        height: 0;
+        transition: 0.5s;
+        overflow: hidden;
+    }
+
+    header nav a:nth-child(1) {
+        margin-top: 50px;
+    }
+
+    header label {
+        width: 45px;
+        height: 30px;
+        position: relative;
+    }
+
+    header label div {
+        width: 100%;
+        height: 5px;
+        background: var(--couleurTexte);
+        position: absolute;
+        transform: translateY(-50%);
+        border-radius: 99px;
+        transition: 0.3s;
+        transform: scale(1);
+    }
+
+    header label:hover div{
+        background: color-mix(in srgb, var(--couleurTexte) 70%, white 30%);
+        cursor: pointer;
+    }
+
+    header label:hover{
+        cursor: pointer;
+    }
+
+    header label div:nth-child(1) {
+        top: 0;
+    }
+
+    header label div:nth-child(2) {
+        top: 50%;
+    }
+
+    header label div:nth-child(3) {
+        top: 100%;
+    }
+
+    header input:checked ~ nav {
+        height: 100vh;
+    }
+
+    header input:checked ~ label div:nth-child(1) {
+        transform: rotate(45deg);
+        top: 50%;
+    }
+
+    header input:checked ~ label div:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 50%;
+    }
+
+    header input:checked ~ label div:nth-child(2) {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+}

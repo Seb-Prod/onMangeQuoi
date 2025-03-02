@@ -1,4 +1,8 @@
 <?php
+if (!defined('SECURE_ACCESS')) {
+    header("Location: ../../index.php?page=er");
+    exit();
+}
 $styles = ['card'];
 include 'includes/header.php';
 
@@ -15,7 +19,7 @@ include 'includes/header.php';
                 ?>
                 <div class="row">
                     <div class="col myCol">
-                        <a href="?page=newAccount" class="myLink">Créer un compte</a>
+                        <a href="?page=register" class="myLink">Créer un compte</a>
                     </div>
                     <div class="col">
                         <a href="#" class="btn btn-primary myButton">Valider</a>

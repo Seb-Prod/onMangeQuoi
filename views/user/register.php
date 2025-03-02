@@ -1,4 +1,8 @@
 <?php
+if (!defined('SECURE_ACCESS')) {
+    header("Location: ../../index.php?page=er");
+    exit();
+}
 $styles = ['card'];
 include 'includes/header.php';
 include  'class/formInput.php';
@@ -10,8 +14,8 @@ $debug =
         'prenom' => ['value' => 'Sébastien', 'message' => true],
         'mail' => ['value' => 'sebastien.drillaud@gmail.com', 'message' => true],
         'pseudo' => ['value' => 'sebT56', 'message' => true],
-        'pass' => ['value' => '', 'message' => false],
-        'confirmPass' => ['value' => '', 'message' => false]
+        'pass' => ['value' => '1234', 'message' => false],
+        'confirmPass' => ['value' => '1234', 'message' => false]
     ];
 $_POST['data'] = $debug;
 
@@ -40,7 +44,7 @@ if (!empty($_POST) && isset($_POST['data'])) {
     <div class="card myCard">
         <div class="card-body">
             <h5 class="myh5">Créer un compte</h5>
-            <form action="controllers/user/newAccount.php" method="post">
+            <form action="controllers/user/register.php" method="post">
                 <?php
                 foreach ($formInputs as $input) {
                     echo $input->render();

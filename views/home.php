@@ -1,5 +1,9 @@
 <?php
-$styles = ['home']; // Ajout d'un fichier CSS spécifique pour la page d'accueil
+if (!defined('SECURE_ACCESS')) {
+    header("Location: ../index.php?page=er");
+    exit();
+}
+$styles = ['home'];
 include 'includes/header.php';
 ?>
 

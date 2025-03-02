@@ -1,5 +1,8 @@
 <?php
-
+if (!defined('SECURE_ACCESS')) {
+    header("Location: ../index.php?page=er");
+    exit();
+}
 include 'includes/header.php';
 
 // Simulation des repas planifiés (exemple)

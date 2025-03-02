@@ -1,5 +1,6 @@
 <?php
 session_start();
+define('SECURE_ACCESS', true);
 $_SESSION['level'] = 2;
 $route = isset($_GET['page']) ? $_GET['page'] : 'home';
 
@@ -23,9 +24,9 @@ $routes = [
         'label' => 'logout',
         'levels' => [1,2]
     ],
-    'newAccount' =>
+    'register' =>
     [
-        'adresse' => 'views/user/newAccount.php'
+        'adresse' => 'views/user/register.php'
     ],
     'user' =>
     [
@@ -40,6 +41,10 @@ $routes = [
         'label' => 'A propos',
         'levels' => [0,1,2]
     ],
+    'error' =>
+    [
+        'adresse' => 'error.php'
+    ]
 ];
 
 // Affichage de la page
@@ -47,8 +52,8 @@ if (array_key_exists($route, $routes)) {
     if (file_exists($routes[$route]['adresse'])) {
         include $routes[$route]['adresse'];
     } else {
-        include 'views/404.php';
+        include 'error.php';
     }
 } else {
-    include 'views/404.php';
+    include 'error.php';
 }

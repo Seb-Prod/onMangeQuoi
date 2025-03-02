@@ -1,7 +1,11 @@
 <?php
 // Empêcher l'accès direct au fichier
 if (!defined('SECURE_ACCESS')) {
-    header("Location: ../index.php?page=er");
+    session_start();
+    include dirname(__DIR__) . '/includes/error.php';
+    $_SESSION['code_erreur'] = '403';
+    var_dump($_SESSION);
+    header("Location: " . $base_url . "index.php?page=error");
     exit();
 }
 
@@ -17,7 +21,9 @@ function getDBConnection()
         ];
         return new PDO($dsn, DB_USER, DB_PASS, $options);
     } catch (PDOException $e) {
-        header("Location: 500.php");
+        include dirname(__DIR__) . '/includes/error.php';
+        $_SESSION['code_erreur'] = '500';
+        header("Location: " . $base_url . "index.php?page=error");
         exit();
     }
 }

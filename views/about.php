@@ -1,4 +1,8 @@
 <?php
+if (!defined('SECURE_ACCESS')) {
+    header("Location: ../index.php?page=er");
+    exit();
+}
 $styles = ['about'];
 include 'includes/header.php'
 ?>

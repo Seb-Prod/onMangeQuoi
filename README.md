@@ -77,32 +77,40 @@ cd planificateur-repas
         📂 user/
             📄 newAccount.php
     📂 css/
+        📄 about.css
         📄 card.css
         📄 header.css
+        📄 home.css
         📄 style.css
+        📄 user.css
     📂 doucumentation/
         📄 FromInput.md
     📂 fonts/
         📄 Roboto.ttf
     📂 img/
-        📄 logo_Bootstap.png
-        📄 logo_MySQL.png
+        📄 logo_bootstap.png
+        📄 logo_mysql.png
         📄 logo_php.png
         📄 logo_web.png
+        📄 logo.png
     📂 includes/
         📄 connection.php
+        📄 error.php
         📄 footer.php
         📄 header.php
     📂 js/
+    📂 models/
+        📄 user.php
     📂 views/
         📂 user/
             📄 login.php
             📄 newAccount.php
-        📄 404.php
         📄 about.php
         📄 home.php
+        📄 user.php
     📄 .gitignore
     📄 .thaccess
+    📄 error.php
     📄 index.php
     📄 README.md
 ```
@@ -137,6 +145,8 @@ Certaines fonctionnalités ne sont pas encore implémentées ou peuvent ne pas f
 - [ ] Planification des repas
 - [ ] Création d'une liste de courses
 - [x] Création de la base de données
-- [ ] Connection à la base de donnée
+- [x] Connection à la base de donnée
 - [x] Page user
+- [ ] Voir pour refaire le logo
+- [ ] Documentation de la classe user.php
 - [ ] Et bien d'autre....

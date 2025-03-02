@@ -133,7 +133,7 @@ Certaines fonctionnalités ne sont pas encore implémentées ou peuvent ne pas f
 - [ ] Formulaire d'ajout de recette
 - [ ] Modification d'une recette
 - [x] Page a propos
-- [ ] Page d'acceuil
+- [x] Page d'acceuil
 - [ ] Planification des repas
 - [ ] Création d'une liste de courses
 - [x] Création de la base de données

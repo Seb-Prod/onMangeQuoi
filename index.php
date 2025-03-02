@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['level'] = 0;
+$_SESSION['level'] = 2;
 $route = isset($_GET['page']) ? $_GET['page'] : 'home';
 
 // Définir les routes disponibles

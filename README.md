@@ -138,5 +138,5 @@ Certaines fonctionnalités ne sont pas encore implémentées ou peuvent ne pas f
 - [ ] Création d'une liste de courses
 - [x] Création de la base de données
 - [ ] Connection à la base de donnée
-- [ ] Page user
+- [x] Page user
 - [ ] Et bien d'autre....

@@ -23,7 +23,7 @@ Cette application web permet aux utilisateurs de planifier leurs repas, ajouter 
 ## 🏗️**Installation**
 1️⃣**Cloner le projet**
 ```batch
-git clone https://github.com/votre-utilisateur/planificateur-repas.git
+git clone https://github.com/Seb-Prod/onMangeQuoi.git
 cd planificateur-repas
 ```
 2️⃣**Configurer la base de données**

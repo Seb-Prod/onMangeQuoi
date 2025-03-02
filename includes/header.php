@@ -44,7 +44,8 @@
         <nav>
             <?php foreach ($routes as $key => $item) : ?>
                 <?php if (isset($item['levels']) && in_array($_SESSION['level'], $item['levels'])) : ?>
-                    <a href="?page=<?php echo $key ?>"><?php echo $item['label'] ?></a>
+                    <?php $class = ($key === $route) ? "ok" :"" ?>
+                    <a href="?page=<?php echo $key ?>" class="<?php echo $class ?>"><?php echo $item['label']?></a>
                 <?php endif ?>
             <?php endforeach ?>
         </nav>

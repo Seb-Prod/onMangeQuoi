@@ -52,6 +52,12 @@ header nav a:hover {
     text-decoration: underline;
 }
 
+header .ok{
+    color: color-mix(in srgb, var(--couleurTexte) 70%, white 30%);
+    text-decoration: underline;
+}
+
+
 header input {
     display: none;
 }

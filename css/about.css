@@ -1,0 +1,46 @@
+.myContainer{
+    background: var(--couleurC) !important;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0) !important;
+}
+
+h1 {
+    color: var(--couleurTexte);
+}
+
+.myH3 {
+    color:var(--couleurTexteHover) !important;
+}
+
+p{
+    color:var(--couleurTexte) !important;
+}
+
+.myCard{
+    color: var(--couleurTexte);
+    background: var(--couleurB) !important;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.myInfo{
+    background: var(--couleurTexteHover);
+    border: 1px solid var(--couleurTexte);
+    color: var(--couleurB);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.myInfo p{
+    color: var(--couleurB) !important;
+}
+
+a{
+    color: var(--couleurTexteHover);
+}
+
+a:hover{
+    font-size: 18px;
+}
+
+.myLi{
+    border-bottom: 1px solid var(--couleurTexteHover);
+
+}

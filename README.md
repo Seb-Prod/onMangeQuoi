@@ -132,7 +132,7 @@ Certaines fonctionnalités ne sont pas encore implémentées ou peuvent ne pas f
 - [ ] Déconnection
 - [ ] Formulaire d'ajout de recette
 - [ ] Modification d'une recette
-- [ ] Page a propos
+- [x] Page a propos
 - [ ] Page d'acceuil
 - [ ] Planification des repas
 - [ ] Création d'une liste de courses

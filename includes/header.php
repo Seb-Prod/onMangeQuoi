@@ -32,9 +32,9 @@
         </div>
         <!-- MOBILE SCREEN -->
         <label for="menu">
-            <div></div>
-            <div></div>
-            <div></div>
+           <span></span>
+           <span></span>
+           <span></span>
         </label>
         <!-- END MOBILE SCREEN -->
         <nav>

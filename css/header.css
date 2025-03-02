@@ -76,7 +76,7 @@ header input {
         position: relative;
     }
 
-    header label div {
+    header label span {
         width: 100%;
         height: 5px;
         background: var(--couleurTexte);
@@ -87,7 +87,7 @@ header input {
         transform: scale(1);
     }
 
-    header label:hover div{
+    header label:hover span{
         background: color-mix(in srgb, var(--couleurTexte) 70%, white 30%);
         cursor: pointer;
     }
@@ -96,15 +96,15 @@ header input {
         cursor: pointer;
     }
 
-    header label div:nth-child(1) {
+    header label span:nth-child(1) {
         top: 0;
     }
 
-    header label div:nth-child(2) {
+    header label span:nth-child(2) {
         top: 50%;
     }
 
-    header label div:nth-child(3) {
+    header label span:nth-child(3) {
         top: 100%;
     }
 
@@ -112,17 +112,17 @@ header input {
         height: 100vh;
     }
 
-    header input:checked ~ label div:nth-child(1) {
+    header input:checked ~ label span:nth-child(1) {
         transform: rotate(45deg);
         top: 50%;
     }
 
-    header input:checked ~ label div:nth-child(3) {
+    header input:checked ~ label span:nth-child(3) {
         transform: rotate(-45deg);
         top: 50%;
     }
 
-    header input:checked ~ label div:nth-child(2) {
+    header input:checked ~ label span:nth-child(2) {
         transform: scale(0);
         opacity: 0;
     }

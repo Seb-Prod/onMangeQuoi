@@ -79,6 +79,7 @@ cd planificateur-repas
     📂 css/
         📄 about.css
         📄 card.css
+        📄 footer.css
         📄 header.css
         📄 home.css
         📄 style.css
@@ -126,7 +127,7 @@ Sébastien Drillaud
 (Seb-Prod) 2025
 
 ## ⚖️**Licence**
-Ce projet est sous licence MIT.
+"La reproduction, la distribution ou toute autre utilisation de ce projet est interdite sans autorisation expresse."
 
 ## 🔨**Statut du projet**
 🚧 Ce projet est actuellement en cours de développement.
@@ -149,4 +150,5 @@ Certaines fonctionnalités ne sont pas encore implémentées ou peuvent ne pas f
 - [x] Page user
 - [ ] Voir pour refaire le logo
 - [ ] Documentation de la classe user.php
+- [x] Footer
 - [ ] Et bien d'autre....

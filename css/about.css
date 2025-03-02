@@ -5,7 +5,7 @@
 }
 
 p{
-    color:var(--couleurTexte) !important;
+    /* color:var(--couleurTexte) !important; */
 }
 
 .myCard{

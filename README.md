@@ -1,4 +1,4 @@
-# 🍽️ On Mange Quoi ?
+# ![php](./img/logo.png)  On Mange Quoi ?
 
 ## 📝 **Description**
 Cette application web permet aux utilisateurs de planifier leurs repas, ajouter des recettes et générer une liste de courses en fonction d'une période sélectionnée. Développée en PHP, MySQL, Bootstrap, CSS et JavaScript, elle offre une interface intuitive et responsive.

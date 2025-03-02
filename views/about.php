@@ -8,7 +8,9 @@ include 'includes/header.php'
             <div class="card-body p-4">
                 <!-- Section Introduction -->
                 <article class="mb-4">
-                    <h3 class="display-5 text-center mb-3 myH3">🍽️ On Mange Quoi ?</h3>
+                    <h3 class="display-5 text-center mb-3 myH3">
+                    <img src="./img/logo.png" alt="PHP" title="PHP" class="img-fluid" style="max-height: 60px;">
+                         On Mange Quoi ?</h3>
                     <h3 class="h4 text-primary mb-3 myH3">Notre mission</h3>
                     <p class="lead">On Mange Quoi ? est né d'une question simple que chacun se pose régulièrement : "Qu'est-ce qu'on mange aujourd'hui ?". Notre application vise à simplifier votre quotidien en vous aidant à planifier vos repas, organiser vos recettes et gérer efficacement vos courses.</p>
                 </article>

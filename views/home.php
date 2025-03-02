@@ -9,7 +9,10 @@ include 'includes/header.php';
             <div class="card-body p-4">
                 <section class="hero text-center d-flex align-items-center">
                     <div class="container">
-                        <h2 class="display-4 myH3">🍽️ On Mange Quoi ?</h2>
+                        <h2 class="display-4 myH3">
+                        <img src="./img/logo.png" alt="PHP" title="PHP" class="img-fluid" style="max-height: 60px;">
+                            On Mange Quoi ?
+                        </h2>
                         <p class="lead couleurTexte">Planifiez vos repas facilement et découvrez de nouvelles recettes chaque jour.</p>
                         <a href="?page=recettes" class="btn btn-lg myButton">Explorer les recettes</a>
                     </div>

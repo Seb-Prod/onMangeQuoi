@@ -78,4 +78,4 @@ $passwordInput = (new FormInput("password", "Mot de passe"))->isPassword();
 echo $nomInput->render();
 echo $mailInput->render();
 echo $passwordInput->render();
-``
+```

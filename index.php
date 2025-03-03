@@ -1,7 +1,7 @@
 <?php
 session_start();
 define('SECURE_ACCESS', true);
-$_SESSION['level'] = 2;
+$_SESSION['level'] = 0;
 $route = isset($_GET['page']) ? $_GET['page'] : 'home';
 
 // Définir les routes disponibles

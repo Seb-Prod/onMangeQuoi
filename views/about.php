@@ -126,7 +126,7 @@ include 'includes/header.php'
                 <!-- Section Licence -->
                 <article>
                     <h3 class="h4 text-primary mb-3 myH3">Licence</h3>
-                    <p>On Mange Quoi ? est un projet sous licence MIT, ce qui signifie que vous êtes libre de l'utiliser, de le modifier et de le distribuer selon les termes de cette licence.</p>
+                    <p>&copy; <?php echo date('Y'); ?> On mange quoi ? - Tous droits réservés</p>
                 </article>
 
                 <hr class="my-4">

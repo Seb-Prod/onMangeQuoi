@@ -52,6 +52,10 @@ main {
     font-size: 12px;
 }
 
+.texteCouleur{
+    color:var(--couleurTexteHover);
+}
+
 
 
 

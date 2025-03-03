@@ -5,6 +5,11 @@ if (!defined('SECURE_ACCESS')) {
 }
 include 'includes/header.php';
 
+$username = "";
+if (isset($_SESSION['username']) && $_SESSION['username']) {
+    $username = $_SESSION['username'];
+}
+
 // Simulation des repas planifiés (exemple)
 $planning = [
     "Lundi" => ["Petit-déjeuner" => "Omelette", "Déjeuner" => "Salade César", "Dîner" => "Pâtes carbonara"],
@@ -19,7 +24,7 @@ $planning = [
             <div class="card-body p-4">
                 <section class="hero text-center d-flex align-items-center">
                     <div class="container">
-                        <h2 class="display-4 myH3">👋 Bienvenue sur votre espace personnel</h2>
+                        <h2 class="display-4 myH3">👋 Bienvenue <span class="texteCouleur"><?= htmlspecialchars($username) ?></span> sur votre espace personnel</h2>
                     </div>
                 </section>
                 <section class="container py-5">

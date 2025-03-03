@@ -7,36 +7,43 @@ $styles = ['card'];
 include 'includes/header.php';
 include  'class/formInput.php';
 
-//Variable pour les testes
-$debug =
-    [
-        'nom' => ['value' => 'Drillaud', 'message' => true],
-        'prenom' => ['value' => 'Sébastien', 'message' => true],
-        'mail' => ['value' => 'sebastien.drillaud@gmail.com', 'message' => true],
-        'pseudo' => ['value' => 'sebT56', 'message' => true],
-        'pass' => ['value' => '1234', 'message' => false],
-        'confirmPass' => ['value' => '1234', 'message' => false]
-    ];
-$_POST['data'] = $debug;
-
 //Initialisation des inputs
 $formInputs = [
     'nom' => new FormInput("nom", "Nom"),
     'prenom' => new FormInput("prenom", "Prenom"),
     'pseudo' => new FormInput("pseudo", "Pseudo"),
-    'mail' => (new FormInput("mail", "Email"))->setType("email"),
+    'email' => (new FormInput("email", "Email"))->setType("email"),
     'pass' => (new FormInput("pass", "Mot de passe"))->setType("password"),
     'confirmPass' => (new FormInput("confirmPass", "Confirmer mot de passe"))->setType("password")
 ];
 
+$messageErreur = [];
 
-
-if (!empty($_POST) && isset($_POST['data'])) {
-    foreach ($_POST['data'] as $key => $item) {
+if (!empty($_SESSION) && isset($_SESSION['datas'])) {
+    $datas = $_SESSION['datas'];
+    foreach ($datas as $key => $item) {
         if (isset($formInputs[$key])) {
-            $formInputs[$key]->setValue($item['value'], $item['message']);
+            if($item['value']){
+                $value = $item['message'];
+            }else{
+                $value = "";
+                if($item['message']){
+                    $messageErreur[] = $item['message'];
+                }
+            }
+            if(($key === 'pass' && $item['value']) ||  ($key === 'confirmPass' && $item['value'])){
+
+            }else{
+                $formInputs[$key]->setValue($value, $item['value']);
+            }
+            
+        }
+        
+        if($key==='register'){
+            $messageErreur[] = $item['message'];
         }
     }
+    unset($_SESSION['datas']);
 }
 
 ?>
@@ -50,6 +57,9 @@ if (!empty($_POST) && isset($_POST['data'])) {
                     echo $input->render();
                 }
                 ?>
+                <?php foreach($messageErreur as $message): ?>
+                    <p class="messageErreur">*<?php echo $message ?></p>
+                <?php endforeach ?>
                 <div class="row">
                     <div class="col myCol">
                         <a href="?page=login" class="myLink">Se Connecter</a>

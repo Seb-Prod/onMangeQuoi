@@ -118,8 +118,8 @@ cd planificateur-repas
 
 ## 📖 **Documentation Technique**
 Retouve la documentation détaillée du projet dans les fichiers suivants :
-- 📌 [FromInput.php](./documentation/FormInput.md) - Générer des champs de formulaire
-- 
+- 📌 [class/fromInput.php](./documentation/FormInput.md) - Générer des champs de formulaire
+- 📌 [model/user.php](./documentation/User.md) - Gestion des users (création, connection, suppression et édition).
 
 ## 👤**Auteur**
 
@@ -135,9 +135,11 @@ Certaines fonctionnalités ne sont pas encore implémentées ou peuvent ne pas f
 
 📌 Prochaines étapes :
 - [x] Formulaire de création de compte
-- [ ] Soumission du formulaire de création de compte
+- [x] Soumission du formulaire de création de compte
+- [x] Docmentation de la classe user
 - [ ] Formulaire de connection
 - [ ] Soumission du formulaire de connection
+- [ ] Maj documentation de la classe
 - [ ] Déconnection
 - [ ] Formulaire d'ajout de recette
 - [ ] Modification d'une recette
@@ -151,4 +153,8 @@ Certaines fonctionnalités ne sont pas encore implémentées ou peuvent ne pas f
 - [ ] Voir pour refaire le logo
 - [ ] Documentation de la classe user.php
 - [x] Footer
+- [ ] Formulaire pour écrir un message
+- [ ] Afficher des messages utilisateur sur l'acceuil
+- [ ] Afficher des new du dévelopeur
+- [ ] Formulaire du dévelopeur
 - [ ] Et bien d'autre....

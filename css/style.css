@@ -42,7 +42,15 @@ main {
     border: none !important;
 }
 
+.messageErreur{
+    color: red;
+    font-size: 12px;
+}
 
+.messageValid{
+    color: var(--couleurTexteHover);
+    font-size: 12px;
+}
 
 
 

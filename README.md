@@ -134,27 +134,42 @@ Sébastien Drillaud
 Certaines fonctionnalités ne sont pas encore implémentées ou peuvent ne pas fonctionner correctement.
 
 📌 Prochaines étapes :
-- [x] Formulaire de création de compte
-- [x] Soumission du formulaire de création de compte
-- [x] Docmentation de la classe user
-- [ ] Formulaire de connection
-- [ ] Soumission du formulaire de connection
-- [ ] Maj documentation de la classe
-- [ ] Déconnection
-- [ ] Formulaire d'ajout de recette
-- [ ] Modification d'une recette
-- [x] Page a propos
-- [x] Page d'acceuil
-- [ ] Planification des repas
-- [ ] Création d'une liste de courses
-- [x] Création de la base de données
-- [x] Connection à la base de donnée
-- [x] Page user
-- [ ] Voir pour refaire le logo
-- [ ] Documentation de la classe user.php
-- [x] Footer
-- [ ] Formulaire pour écrir un message
-- [ ] Afficher des messages utilisateur sur l'acceuil
-- [ ] Afficher des new du dévelopeur
-- [ ] Formulaire du dévelopeur
-- [ ] Et bien d'autre....
+- Gestion de compte 
+    - [x] Formulaire de création de compte
+    - [x] Soumission du formulaire de création de compte
+    - [x] Docmentation de la classe user
+    - [x] Formulaire de connection
+    - [x] Soumission du formulaire de connection
+    - [ ] Maj documentation de la classe
+    - [ ] Déconnection
+    - [ ] Formulaire modification du mot de passe
+    - [ ] Soumission du formulaire de modification
+    - [ ] Mise à jour de la documentation
+- Gestion des recetes
+    - [ ] Formulaire d'ajout de recette
+    - [ ] Soumission du formulaire d'ajout
+    - [ ] Formulaire modification d'une recette
+    - [ ] Soumission du formulaire de modification
+- Affichage des recettes
+    - [ ] Affichage des 5 dernières recettes
+    - [ ] affichage de 5 recettes aléatoire
+    - [ ] formulaire pour chercher une recette avec son nom
+    - [ ] formulaire pour chercher une recette avec des ingrédients
+- Page a propos
+    - [x] Page a propos
+- Page d'acceuil
+    - [x] Page d'acceuil
+- autre
+    - [ ] Planification des repas
+    - [ ] Création d'une liste de courses
+    - [x] Création de la base de données
+    - [x] Connection à la base de donnée
+    - [x] Page user
+    - [ ] Voir pour refaire le logo
+    - [ ] Documentation de la classe user.php
+    - [x] Footer
+    - [ ] Formulaire pour écrir un message
+    - [ ] Afficher des messages utilisateur sur l'acceuil
+    - [ ] Afficher des new du dévelopeur
+    - [ ] Formulaire du dévelopeur
+    - [ ] Et bien d'autre....

@@ -1,3 +1,11 @@
+<?php
+if(isset($_SESSION['level']) && $_SESSION['level'] != ''){
+    $level = $_SESSION['level'];
+}else{
+    $level = 0;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -43,7 +51,7 @@
         <!-- END MOBILE SCREEN -->
         <nav>
             <?php foreach ($routes as $key => $item) : ?>
-                <?php if (isset($item['levels']) && in_array($_SESSION['level'], $item['levels'])) : ?>
+                <?php if (isset($item['levels']) && in_array($level, $item['levels'])) : ?>
                     <?php $class = ($key === $route) ? "ok" :"" ?>
                     <a href="?page=<?php echo $key ?>" class="<?php echo $class ?>"><?php echo $item['label']?></a>
                 <?php endif ?>

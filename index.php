@@ -19,7 +19,7 @@ $routes = [
     ],
     'logout' =>
     [
-        'adresse' => 'views/logout.php',
+        'adresse' => 'views/user/logout.php',
         'label' => 'logout',
         'levels' => [1,2]
     ],

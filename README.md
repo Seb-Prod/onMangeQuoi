@@ -141,7 +141,8 @@ Certaines fonctionnalités ne sont pas encore implémentées ou peuvent ne pas f
     - [x] Formulaire de connection
     - [x] Soumission du formulaire de connection
     - [ ] Maj documentation de la classe
-    - [ ] Déconnection
+    - [x] Formulaire de déconnection
+    - [x] Déconnection
     - [ ] Formulaire modification du mot de passe
     - [ ] Soumission du formulaire de modification
     - [ ] Mise à jour de la documentation

@@ -66,55 +66,34 @@ cd planificateur-repas
     http://localhost/onmangequoi
     ```
 ## 📂**Structure du Projet**
-```md
+
 📦onMangeQuoi/
-    📂 class/
-        📄 formInput.php
-    📂 config/
-        📄 config.php
-    📂 controllers/
-        📂 recipe/
-        📂 user/
-            📄 newAccount.php
-    📂 css/
-        📄 about.css
-        📄 card.css
-        📄 footer.css
-        📄 header.css
-        📄 home.css
-        📄 style.css
-        📄 user.css
-    📂 doucumentation/
-        📄 FromInput.md
-    📂 fonts/
-        📄 Roboto.ttf
-    📂 img/
-        📄 logo_bootstap.png
-        📄 logo_mysql.png
-        📄 logo_php.png
-        📄 logo_web.png
-        📄 logo.png
-    📂 includes/
-        📄 connection.php
-        📄 error.php
-        📄 footer.php
-        📄 header.php
-    📂 js/
-    📂 models/
-        📄 user.php
-    📂 views/
-        📂 user/
-            📄 login.php
-            📄 newAccount.php
-        📄 about.php
-        📄 home.php
-        📄 user.php
-    📄 .gitignore
-    📄 .thaccess
-    📄 error.php
-    📄 index.php
-    📄 README.md
-```
+ ┣ 📂 class/ - Classes utilitaires pour l'application
+ ┃ ┗ Inclut la classe FormInput pour la génération de formulaires
+ ┣ 📂 config/ - Fichiers de configuration de l'application
+ ┃ ┗ Paramètres de connexion à la base de données et configuration globale
+ ┣ 📂 controllers/ - Logique de contrôle de l'application
+ ┃ ┣ 📂 recipe/ - Contrôleurs pour la gestion des recettes
+ ┃ ┗ 📂 user/ - Contrôleurs pour la gestion des utilisateurs
+ ┣ 📂 css/ - Fichiers de style de l'application
+ ┃ ┗ Styles par composant et styles globaux
+ ┣ 📂 documentation/ - Documentation technique du projet
+ ┃ ┗ Documentation détaillée des classes et fonctionnalités
+ ┣ 📂 fonts/ - Polices utilisées dans l'application
+ ┣ 📂 img/ - Images et logos du projet
+ ┣ 📂 includes/ - Fichiers inclus dans plusieurs pages
+ ┃ ┗ En-têtes, pieds de page, connexion à la base de données
+ ┣ 📂 js/ - Scripts JavaScript pour les fonctionnalités côté client
+ ┣ 📂 models/ - Modèles de données pour interagir avec la base de données
+ ┃ ┗ Inclut le modèle User pour la gestion des utilisateurs
+ ┣ 📂 views/ - Templates et fichiers d'affichage
+ ┃ ┣ 📂 user/ - Vues liées à la gestion des utilisateurs
+ ┃ ┗ Pages principales de l'application
+ ┣ 📄 .gitignore - Fichiers à ignorer par Git
+ ┣ 📄 .htaccess - Configuration Apache
+ ┣ 📄 error.php - Page d'erreur
+ ┣ 📄 index.php - Point d'entrée de l'application
+ ┗ 📄 README.md - Documentation globale
 
 ## 📖 **Documentation Technique**
 Retouve la documentation détaillée du projet dans les fichiers suivants :

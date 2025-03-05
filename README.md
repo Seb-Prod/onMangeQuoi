@@ -100,10 +100,10 @@ cd planificateur-repas
 Retrouvez la documentation détaillée du projet dans les fichiers suivants :
 
 ### 📑 Documents de Planification
-- [🌟 Présentation du Projet](./documentation/project/00-presentation-projet.md) - Vision globale et objectifs de l'application
-- [👥 Personas](./documentation/project/01-personas.md) - Profils détaillés des utilisateurs cibles
-- [📋 User Stories](./documentation/project/02-user-stories.md) - Fonctionnalités et besoins des utilisateurs
-- [🎫 Tickets de Développement](./documentation/project/03-tickets.md) - Détail des tâches de développement
+- [🌟 Présentation du Projet](./documentation/project/00 - presentation-projet.md) - Vision globale et objectifs de l'application
+- [👥 Personas](./documentation/project/01 - personas.md) - Profils détaillés des utilisateurs cibles
+- [📋 User Stories](./documentation/project/02 - user-stories.md) - Fonctionnalités et besoins des utilisateurs
+- [🎫 Tickets de Développement](./documentation/project/03 - tickets.md) - Détail des tâches de développement
 
 ### 📌 Documentation Technique
 - [📋 Gestion des Formulaires](./documentation/FormInput.md) - Détails sur la classe FormInput

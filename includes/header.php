@@ -12,7 +12,7 @@ if(isset($_SESSION['level']) && $_SESSION['level'] != ''){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>On Mange Quoi ?</title>
+    <title><?php echo $appName ?></title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="apple-touch-icon" href="img/logo.png">
     <link rel="stylesheet" href="css/style.css">
@@ -36,10 +36,7 @@ if(isset($_SESSION['level']) && $_SESSION['level'] != ''){
         <div class="logo">
             <img src="img/logo.png" alt="" class="logoImg">
             <h1>
-                <span class="letter">O</span>n
-                <span class="letter">M</span>ange
-                <span class="letter">Q</span>uoi
-                <span class="letter">?</span>
+                <span class="letter"><?php echo $appName ?></span>
             </h1>
         </div>
         <!-- MOBILE SCREEN -->

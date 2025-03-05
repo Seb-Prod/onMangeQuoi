@@ -1,4 +1,4 @@
-# ![php](./img/logo.png)  On Mange Quoi ?
+# ![php](./img/logo.png)  Menu Zen
 
 ## 📝 **Description**
 Cette application web permet aux utilisateurs de planifier leurs repas, ajouter des recettes et générer une liste de courses en fonction d'une période sélectionnée. Développée en PHP, MySQL, Bootstrap, CSS et JavaScript, elle offre une interface intuitive et responsive.
@@ -88,6 +88,7 @@ cd planificateur-repas
  ┃ ┗ Inclut le modèle User pour la gestion des utilisateurs
  ┣ 📂 views/ - Templates et fichiers d'affichage
  ┃ ┣ 📂 user/ - Vues liées à la gestion des utilisateurs
+ ┃ ┣ 📂 recipe/ - Vues liées à la gestion des recettes
  ┃ ┗ Pages principales de l'application
  ┣ 📄 .gitignore - Fichiers à ignorer par Git
  ┣ 📄 .htaccess - Configuration Apache
@@ -96,9 +97,17 @@ cd planificateur-repas
  ┗ 📄 README.md - Documentation globale
 
 ## 📖 **Documentation Technique**
-Retouve la documentation détaillée du projet dans les fichiers suivants :
-- 📌 [class/fromInput.php](./documentation/FormInput.md) - Générer des champs de formulaire
-- 📌 [model/user.php](./documentation/User.md) - Gestion des users (création, connection, suppression et édition).
+Retrouvez la documentation détaillée du projet dans les fichiers suivants :
+
+### 📑 Documents de Planification
+- [🌟 Présentation du Projet](./documentation/project/00-presentation-projet.md) - Vision globale et objectifs de l'application
+- [👥 Personas](./documentation/project/01-personas.md) - Profils détaillés des utilisateurs cibles
+- [📋 User Stories](./documentation/project/02-user-stories.md) - Fonctionnalités et besoins des utilisateurs
+- [🎫 Tickets de Développement](./documentation/project/03-tickets.md) - Détail des tâches de développement
+
+### 📌 Documentation Technique
+- [📋 Gestion des Formulaires](./documentation/FormInput.md) - Détails sur la classe FormInput
+- [👤 Gestion des Utilisateurs](./documentation/User.md) - Détails sur la gestion des utilisateurs (création, connexion, suppression, édition)
 
 ## 👤**Auteur**
 
@@ -111,45 +120,3 @@ Sébastien Drillaud
 ## 🔨**Statut du projet**
 🚧 Ce projet est actuellement en cours de développement.
 Certaines fonctionnalités ne sont pas encore implémentées ou peuvent ne pas fonctionner correctement.
-
-📌 Prochaines étapes :
-- Gestion de compte 
-    - [x] Formulaire de création de compte
-    - [x] Soumission du formulaire de création de compte
-    - [x] Docmentation de la classe user
-    - [x] Formulaire de connection
-    - [x] Soumission du formulaire de connection
-    - [ ] Maj documentation de la classe
-    - [x] Formulaire de déconnection
-    - [x] Déconnection
-    - [ ] Formulaire modification du mot de passe
-    - [ ] Soumission du formulaire de modification
-    - [ ] Mise à jour de la documentation
-- Gestion des recetes
-    - [ ] Formulaire d'ajout de recette
-    - [ ] Soumission du formulaire d'ajout
-    - [ ] Formulaire modification d'une recette
-    - [ ] Soumission du formulaire de modification
-- Affichage des recettes
-    - [ ] Affichage des 5 dernières recettes
-    - [ ] affichage de 5 recettes aléatoire
-    - [ ] formulaire pour chercher une recette avec son nom
-    - [ ] formulaire pour chercher une recette avec des ingrédients
-- Page a propos
-    - [x] Page a propos
-- Page d'acceuil
-    - [x] Page d'acceuil
-- autre
-    - [ ] Planification des repas
-    - [ ] Création d'une liste de courses
-    - [x] Création de la base de données
-    - [x] Connection à la base de donnée
-    - [x] Page user
-    - [ ] Voir pour refaire le logo
-    - [ ] Documentation de la classe user.php
-    - [x] Footer
-    - [ ] Formulaire pour écrir un message
-    - [ ] Afficher des messages utilisateur sur l'acceuil
-    - [ ] Afficher des new du dévelopeur
-    - [ ] Formulaire du dévelopeur
-    - [ ] Et bien d'autre....

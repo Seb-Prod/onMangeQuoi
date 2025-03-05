@@ -1,6 +1,7 @@
 <?php
 session_start();
 define('SECURE_ACCESS', true);
+$appName = "Menu Zen";
 $route = isset($_GET['page']) ? $_GET['page'] : 'home';
 
 // Définir les routes disponibles
@@ -27,22 +28,25 @@ $routes = [
     [
         'adresse' => 'views/user/register.php'
     ],
-    'user' =>
+    'profile' =>
     [
-        'adresse' => 'views/user.php',
+        'adresse' => 'views/profile.php',
         'label' => 'Mon compte',
         'levels' => [1,2]
     ],
     'about' =>
     [
-        'adresse' =>
-        'views/about.php',
+        'adresse' => 'views/about.php',
         'label' => 'A propos',
         'levels' => [0,1,2]
     ],
     'error' =>
     [
         'adresse' => 'error.php'
+    ],
+    'recipeadd' =>
+    [
+        'adresse' => 'views/recipe/add.php'
     ]
 ];
 

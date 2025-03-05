@@ -29,7 +29,7 @@ if (
         if(isset($_SESSION['admin']) && $_SESSION['admin'] === 1){
             $_SESSION['level'] = 2;
         }
-        header("Location: ../../index.php?page=user");
+        header("Location: ../../index.php?page=profile");
         exit();
     } else {
         $_SESSION['datas'] = $login;

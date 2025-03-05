@@ -15,14 +15,14 @@ include 'includes/header.php';
                     <div class="container">
                         <h2 class="display-4 myH3">
                         <img src="./img/logo.png" alt="PHP" title="PHP" class="img-fluid" style="max-height: 60px;">
-                            On Mange Quoi ?
+                        <?php echo $appName ?>
                         </h2>
                         <p class="lead couleurTexte">Planifiez vos repas facilement et découvrez de nouvelles recettes chaque jour.</p>
                         <a href="?page=recettes" class="btn btn-lg myButton">Explorer les recettes</a>
                     </div>
                 </section>
                 <section class="container py-5">
-                    <h2 class="text-center mb-4 myH3">Pourquoi choisir On Mange Quoi ?</h2>
+                    <h2 class="text-center mb-4 myH3">Pourquoi choisir <?php echo $appName ?></h2>
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         <div class="col">
                             <div class="card h-100 border-0 bg-light p-3 myCard">

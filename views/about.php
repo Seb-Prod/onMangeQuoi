@@ -14,20 +14,20 @@ include 'includes/header.php'
                 <article class="mb-4">
                     <h3 class="display-5 text-center mb-3 myH3">
                     <img src="./img/logo.png" alt="PHP" title="PHP" class="img-fluid" style="max-height: 60px;">
-                         On Mange Quoi ?</h3>
+                    <?php echo $appName ?></h3>
                     <h3 class="h4 text-primary mb-3 myH3">Notre mission</h3>
-                    <p class="lead">On Mange Quoi ? est né d'une question simple que chacun se pose régulièrement : "Qu'est-ce qu'on mange aujourd'hui ?". Notre application vise à simplifier votre quotidien en vous aidant à planifier vos repas, organiser vos recettes et gérer efficacement vos courses.</p>
+                    <p class="lead"><?php echo $appName ?> est né d'une question simple que chacun se pose régulièrement : "Qu'est-ce qu'on mange aujourd'hui ?". Notre application vise à simplifier votre quotidien en vous aidant à planifier vos repas, organiser vos recettes et gérer efficacement vos courses.</p>
                 </article>
 
                 <!-- Section Qui sommes-nous -->
                 <article class="mb-4">
                     <h3 class="h4 text-primary mb-3 myH3">Qui sommes-nous ?</h3>
-                    <p>“On Mange Quoi ?” est un projet personnel développé par (<a href="https://github.com/Seb-Prod"  target="_blank">Seb-Prod</a>) dans le cadre de ma reconversion professionnelle à la <a href="https://codingfactory.fr/" target="_blank">Coding Factory</a>. Sur mon temps personnel, je conçois cette application avec l’objectif de simplifier la planification des repas, la gestion des recettes et des courses. Ce projet me permet d’allier ma passion pour le développement et mon envie de créer un outil pratique et intuitif pour le quotidien.</p>
+                    <p>“<?php echo $appName ?>” est un projet personnel développé par (<a href="https://github.com/Seb-Prod"  target="_blank">Seb-Prod</a>) dans le cadre de ma reconversion professionnelle à la <a href="https://codingfactory.fr/" target="_blank">Coding Factory</a>. Sur mon temps personnel, je conçois cette application avec l’objectif de simplifier la planification des repas, la gestion des recettes et des courses. Ce projet me permet d’allier ma passion pour le développement et mon envie de créer un outil pratique et intuitif pour le quotidien.</p>
                 </article>
 
                 <!-- Section Avantages -->
                 <article class="mb-4">
-                    <h2 class="h3 text-center mb-4 myH3">Pourquoi utiliser On Mange Quoi ?</h2>
+                    <h2 class="h3 text-center mb-4 myH3">Pourquoi utiliser On <?php echo $appName ?></h2>
 
                     <div class="row row-cols-1 row-cols-md-2 g-4 mb-3">
                         <div class="col">
@@ -126,7 +126,7 @@ include 'includes/header.php'
                 <!-- Section Licence -->
                 <article>
                     <h3 class="h4 text-primary mb-3 myH3">Licence</h3>
-                    <p>&copy; <?php echo date('Y'); ?> On mange quoi ? - Tous droits réservés</p>
+                    <p>&copy; <?php echo date('Y'); ?> <?php echo $appName ?> - Tous droits réservés</p>
                 </article>
 
                 <hr class="my-4">

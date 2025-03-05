@@ -66,7 +66,7 @@ cd planificateur-repas
     http://localhost/onmangequoi
     ```
 ## 📂**Structure du Projet**
-
+```
 📦onMangeQuoi/
  ┣ 📂 class/ - Classes utilitaires pour l'application
  ┃ ┗ Inclut la classe FormInput pour la génération de formulaires
@@ -95,7 +95,7 @@ cd planificateur-repas
  ┣ 📄 error.php - Page d'erreur
  ┣ 📄 index.php - Point d'entrée de l'application
  ┗ 📄 README.md - Documentation globale
-
+```
 ## 📖 **Documentation Technique**
 Retrouvez la documentation détaillée du projet dans les fichiers suivants :
 

@@ -7,7 +7,24 @@ if (isset($_SESSION['nom_plat'])) {
 }
 
 if(isset($_SESSION["types_plat"])){
-    
+    $types = $_SESSION['types_plat'];
+
+    // Nettoyage des données
+    $types = array_map('trim', $types);
+    $types = array_filter($types);
+}else{
+    $types = null;
+}
+
+
+
+function addType($type): string
+{
+    $html = <<<HTML
+        <span class="badge text-bg-secondary me-1 mb-1">{$type}</span>
+        HTML;
+
+    return $html;
 }
 
 
@@ -17,7 +34,10 @@ if(isset($_SESSION["types_plat"])){
     <div class="card myCard">
         <div class="card-body">
             <h5 class="myh5"><?php echo $nomPlat ?></h5>
-            <p>Contenu de la deuxième carte.</p>
+            <?php foreach($types as $type){
+                echo addType($type);
+            }
+            ?>
         </div>
     </div>
 </div>

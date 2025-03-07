@@ -69,7 +69,7 @@ function addType($type): string
                 <?php echo $inputName->render() ?>
                 <hr>
                 <h5 class="myh5">Type(s) de plas</h5>
-                <div id="recipeTypes">
+                <div id="recipeTypes" class="me-1 mb-1">
                     <?php
                     // Vérifier et afficher les types de plats déjà sélectionnés
                     if (isset($_SESSION['types_plat']) && is_array($_SESSION['types_plat'])) {

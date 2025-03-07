@@ -246,7 +246,7 @@ class FormDataList
 class Input
 {
     private string $type = "text";
-    private ?string $value = null;
+    private string $value = "";
     private string $placeholder;
     private bool $required = true;
     private string $name;
@@ -256,6 +256,8 @@ class Input
     private string $idButton;
     private string $textButton;
     private ?string $errorMessage = null;
+    private float $min = 0;
+    private float $max = 59;
 
     public function __construct(string $name, string $placeholder)
     {
@@ -297,6 +299,21 @@ class Input
         return $this;
     }
 
+    public function setMin(float $min):self{
+        $this->min = $min;
+        return $this;
+    }
+
+    public function setMax(float $max):self{
+        $this->max = $max;
+        return $this;
+    }
+
+    public function setType(string $type):self{
+        $this->type = $type;
+        return $this;
+    }
+
     public function render()
     {
         //Les attribues de l'input
@@ -316,12 +333,17 @@ class Input
             $attributes['required'] = true;
         }
 
-        if($this->value){
-            $attributes['value'] = $this->value;
+        if ($this->value !== null) { 
+            $attributes['value'] = htmlspecialchars($this->value);
         }
 
         if ($this->errorMessage) {
             $attributes['class'] .= ' is-invalid';
+        }
+
+        if($this->type === 'number'){
+            $attributes['min'] = $this->min;
+            $attributes['max'] = $this->max;
         }
 
         //Convetion du tableau d'attribues en chaine de String
@@ -346,7 +368,7 @@ class Input
         }
 
         $html = <<<HTML
-        <div class="d-flex align-items-center mb-3">
+        <div class="d-flex align-items-center mb-3 ">
             <div class="form-floating flex-grow-1 has-validation">
                 <input {$attributeString}>
                 <label for="{$this->id}">{$this->placeholder}</label>

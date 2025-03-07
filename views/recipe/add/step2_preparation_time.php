@@ -14,7 +14,35 @@ include 'class/formInput.php';
 include 'includes/connection.php';
 
 
-var_dump($_SESSION);
+
+function inputTime($type): string
+{
+    $inputHeure = (new Input('heure' . $type, 'h'))->settype('number')->setMax(48)->setRequired(false);
+    $inputMinute = (new Input('minute' . $type, 'min'))->settype('number')->setMax(59)->setRequired(false);
+
+    $inputHeure->setValue("0");
+$inputMinute->setValue("0");
+
+    $html = <<<HTML
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <div class="d-flex align-items-center">
+                <div class="me-2">
+                    {$inputHeure->render()}
+                </div>
+                <div>:</div>
+                <div class="ms-2">
+                    {$inputMinute->render()}
+                </div>
+            </div>
+        </div>
+    </div>
+HTML;
+
+    return $html;
+}
+
+
 
 ?>
 <main>
@@ -24,10 +52,15 @@ var_dump($_SESSION);
             <div class="col-12 col-md-6">
                 <div class="card myCard">
                     <div class="card-body">
-                        <form action="controllers/recipe/addName.php" method="post">
+                        <form action="controllers/recipe/add/step2.php" method="post">
                             <h5 class="myh5">Temps de préparations</h5>
+                            <?php echo inputTime('preparation')?>
                             <hr>
-                            <h5 class="myh5">Type(s) de plas</h5>
+                            <h5 class="myh5">Temps de repos</h5>
+                            <?php echo inputTime('repos')?>
+                            <hr>
+                            <h5 class="myh5">Temps de cuisson</h5>
+                            <?php echo inputTime('cuisson')?>
                             <div class="row justify-content-between">
                                 <div class="col-auto">
                                 </div>

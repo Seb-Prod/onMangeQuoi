@@ -21,7 +21,6 @@ if (
     $login = $user->login($pseudo, $pass);
     
     if ($login["success"]) {
-        echo 'Ok';
         var_dump($_SESSION);
         if(isset($_SESSION['user_id']) && $_SESSION['user_id'] !=''){
             $_SESSION['level'] = 1;

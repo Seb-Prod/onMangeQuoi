@@ -1,7 +1,7 @@
 <?php
-if(isset($_SESSION['level']) && $_SESSION['level'] != ''){
+if (isset($_SESSION['level']) && $_SESSION['level'] != '') {
     $level = $_SESSION['level'];
-}else{
+} else {
     $level = 0;
 }
 
@@ -12,6 +12,15 @@ if(isset($_SESSION['level']) && $_SESSION['level'] != ''){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Menu Zen est une application web permettant de planifier ses repas, ajouter des recettes et générer une liste de courses automatiquement.">
+    <meta name="keywords" content="planificateur de repas, recettes, liste de courses, PHP, MySQL, Bootstrap, application web">
+    <meta name="author" content="Sébastien Drillaud (Seb-Prod)">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Menu Zen - Planificateur de Repas">
+    <meta property="og:description" content="Simplifiez votre organisation culinaire avec Menu Zen. Ajoutez des recettes, planifiez vos repas et générez automatiquement votre liste de courses !">
+    <!-- <meta property="og:image" content="URL_DU_LOGO">
+    <meta property="og:url" content="http://localhost/onmangequoi"> -->
+    <meta property="og:type" content="website">
     <title><?php echo $appName ?></title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="apple-touch-icon" href="img/logo.png">
@@ -49,8 +58,8 @@ if(isset($_SESSION['level']) && $_SESSION['level'] != ''){
         <nav>
             <?php foreach ($routes as $key => $item) : ?>
                 <?php if (isset($item['levels']) && in_array($level, $item['levels'])) : ?>
-                    <?php $class = ($key === $route) ? "ok" :"" ?>
-                    <a href="?page=<?php echo $key ?>" class="<?php echo $class ?>"><?php echo $item['label']?></a>
+                    <?php $class = ($key === $route) ? "ok" : "" ?>
+                    <a href="?page=<?php echo $key ?>" class="<?php echo $class ?>"><?php echo $item['label'] ?></a>
                 <?php endif ?>
             <?php endforeach ?>
         </nav>

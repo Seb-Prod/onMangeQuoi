@@ -57,9 +57,26 @@ main {
 }
 
 
+#recipeTypes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacement entre les éléments */
+    max-width: 100%; /* Empêche l'élargissement */
+}
 
+.ingredient-row {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
 
-
+.myCard {
+    width: 95%; /* Ou une largeur fixe si besoin, exemple : 400px */
+    max-width: 400px; /* Adapte selon la taille souhaitée */
+    margin: auto;
+}
 
 .error {
     margin-top: 20px;

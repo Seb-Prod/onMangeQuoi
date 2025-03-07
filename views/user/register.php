@@ -3,11 +3,12 @@ if (!defined('SECURE_ACCESS')) {
     header("Location: ../../index.php?page=er");
     exit();
 }
+
 $styles = ['card'];
 include 'includes/header.php';
-include  'class/formInput.php';
+include 'class/formInput.php';
 
-//Initialisation des inputs
+// Initialisation des inputs
 $formInputs = [
     'nom' => new FormInput("nom", "Nom"),
     'prenom' => new FormInput("prenom", "Prenom"),
@@ -19,47 +20,59 @@ $formInputs = [
 
 $messageErreur = [];
 
-if (!empty($_SESSION) && isset($_SESSION['datas'])) {
+if (!empty($_SESSION['datas']) && is_array($_SESSION['datas'])) {
     $datas = $_SESSION['datas'];
-    foreach ($datas as $key => $item) {
-        if (isset($formInputs[$key])) {
-            if($item['value']){
-                $value = $item['message'];
-            }else{
-                $value = "";
-                if($item['message']){
-                    $messageErreur[] = $item['message'];
-                }
-            }
-            if(($key === 'pass' && $item['value']) ||  ($key === 'confirmPass' && $item['value'])){
 
-            }else{
-                $formInputs[$key]->setValue($value, $item['value']);
+    foreach ($formInputs as $key => $input) {
+        if (isset($datas[$key])) {
+            $item = $datas[$key];
+
+            // Vérifier si une valeur existe
+            $value = isset($item['value']) ? $item['value'] : "";
+
+            // Ajouter un message d'erreur si présent
+            if (!empty($item['message'])) {
+                $messageErreur[] = $item['message'];
             }
-            
-        }
-        
-        if($key==='register'){
-            $messageErreur[] = $item['message'];
+
+            // Ne pas pré-remplir les champs de mot de passe pour des raisons de sécurité
+            if ($key !== 'pass' && $key !== 'confirmPass') {
+                $input->setValue($value);
+            }
         }
     }
+
+    // Ajouter un message général d'erreur si présent
+    if (isset($datas['register']['message'])) {
+        $messageErreur[] = $datas['register']['message'];
+    }
+
+    // Nettoyage des données en session après affichage
     unset($_SESSION['datas']);
 }
-
 ?>
+
 <main>
     <div class="card myCard">
         <div class="card-body">
             <h5 class="myh5">Créer un compte</h5>
+
+            <?php if (!empty($messageErreur)): ?>
+                <div class="alert alert-danger">
+                    <ul>
+                        <?php foreach ($messageErreur as $message): ?>
+                            <li><?php echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+
             <form action="controllers/user/register.php" method="post">
                 <?php
                 foreach ($formInputs as $input) {
                     echo $input->render();
                 }
                 ?>
-                <?php foreach($messageErreur as $message): ?>
-                    <p class="messageErreur">*<?php echo $message ?></p>
-                <?php endforeach ?>
                 <div class="row">
                     <div class="col myCol">
                         <a href="?page=login" class="myLink">Se Connecter</a>
@@ -72,4 +85,5 @@ if (!empty($_SESSION) && isset($_SESSION['datas'])) {
         </div>
     </div>
 </main>
+
 <?php include 'includes/footer.php'; ?>

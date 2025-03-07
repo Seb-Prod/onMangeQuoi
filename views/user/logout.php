@@ -1,4 +1,5 @@
 <?php
+// Vérifier si l'accès est sécurisé
 if (!defined('SECURE_ACCESS')) {
     header("Location: ../../index.php?page=er");
     exit();
@@ -6,14 +7,12 @@ if (!defined('SECURE_ACCESS')) {
 
 // Vérifier si une session est active avant de la détruire
 if (session_status() === PHP_SESSION_ACTIVE) {
-    session_unset();
-    session_destroy();
+    session_unset(); // Supprime toutes les variables de session
+    session_destroy(); // Détruit la session
 }
 
 $styles = ['card'];
 include 'includes/header.php';
-
-
 
 $messageValid = "Vous avez été déconnecté avec succès.";
 ?>
@@ -23,10 +22,11 @@ $messageValid = "Vous avez été déconnecté avec succès.";
             <h5 class="myh5">Déconnexion</h5>
             <p class="messageValid mb-4"><?php echo $messageValid; ?></p>
             <div class="d-flex flex-column align-items-center gap-3 mt-3">
-                <a href="?page=login" class="myLink">Se reconnecter</a>
+                <a href="index.php?page=login" class="myLink">Se reconnecter</a>
                 <a href="index.php" class="btn btn-primary myButton">Retour à l'accueil</a>
             </div>
         </div>
     </div>
 </main>
+
 <?php include 'includes/footer.php'; ?>

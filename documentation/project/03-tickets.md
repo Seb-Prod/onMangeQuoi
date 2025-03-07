@@ -18,10 +18,9 @@
 
 #### Critères de Validation
 - [x] Formulaire avec champs : email, nom, prénom, pseudo, mot de passe,  et confirmation
-- [x] Validation email et pseudo uniqueq
+- [x] Validation email et pseudo unique
 - [x] Contraintes de mot de passe (min 8 caractères, 1 majuscule, 1 chiffre)
 - [x] Gestion des erreurs utilisateur
-
 
 #### Tests à Réaliser
 - Test inscription avec email valide

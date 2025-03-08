@@ -33,6 +33,8 @@ if (
             header("Location: ../../../index.php?page=recipeadd");
             exit();
         } else {
+            // Etape actuel
+            $_SESSION['step1'] = true;
             header("Location: ../../../index.php?page=recipestep2");
             exit();
         }

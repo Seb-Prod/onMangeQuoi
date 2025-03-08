@@ -25,8 +25,8 @@ $minutecuisson = getValidatedTime('minutecuisson', 59);
 if (in_array(false, [$heurepreparation, $minutepreparation, $heurerepos, $minuterepos, $heurecuisson, $minutecuisson], true)) {
     echo 'erreur';
     var_dump($_POST);
-    //header("Location: ../../../index.php?page=recipestep2");
-    //exit();
+    header("Location: ../../../index.php?page=recipestep2");
+    exit();
 }
 
 // Conversion en minutes
@@ -40,7 +40,7 @@ $_SESSION['repos'] = $repos;
 $_SESSION['cuisson'] = $cuisson;
 
 // Redirection vers la page suivante après validation
-echo 'ok';
-//header("Location: ../../../index.php?page=recipestep3");
-//exit();
+$_SESSION['step2'] = true;
+header("Location: ../../../index.php?page=recipestep3");
+exit();
 ?>

@@ -5,7 +5,7 @@ if (!defined('SECURE_ACCESS')) {
     exit();
 }
 
-$styles = ['card'];
+$styles = ['recipe/add/card'];
 $scripts = [''];
 
 // Inclusions des fichiers nécessaires.
@@ -13,7 +13,10 @@ include 'includes/header.php';
 include 'class/formInput.php';
 include 'includes/connection.php';
 
-
+// Etape actuel
+if(!isset($_SESSION['step2'])){
+    $_SESSION['step2'] = false;
+}
 
 function inputTime($type): string
 {
@@ -21,17 +24,17 @@ function inputTime($type): string
     $inputMinute = (new Input('minute' . $type, 'min'))->settype('number')->setMax(59)->setRequired(false);
 
     $inputHeure->setValue("0");
-$inputMinute->setValue("0");
+    $inputMinute->setValue("0");
 
     $html = <<<HTML
     <div class="row justify-content-center">
         <div class="col-auto">
             <div class="d-flex align-items-center">
-                <div class="me-2">
+                <div class="me-2" style="min-width: 100px;">
                     {$inputHeure->render()}
                 </div>
-                <div>:</div>
-                <div class="ms-2">
+                <div class="mx-2">:</div>
+                <div class="ms-2" style="min-width: 100px;">
                     {$inputMinute->render()}
                 </div>
             </div>
@@ -44,10 +47,13 @@ HTML;
 
 
 
-?>
+?> 
 <main>
     <div class="container">
         <div class="row">
+            <!-- Progression -->
+            <?php include 'views/recipe/add/step_status.php' ?>
+            <!-- Aperçs Recette -->
             <?php include 'views/recipe/add/recipe_card.php' ?>
             <div class="col-12 col-md-6">
                 <div class="card myCard">
@@ -75,7 +81,6 @@ HTML;
         </div>
     </div>
 </main>
-<?php
-// Inclusion du fichier de pied de page (footer).
+<?php // Inclusion du fichier de pied de page (footer).
 include 'includes/footer.php';
 ?>

@@ -5,14 +5,19 @@ if (!defined('SECURE_ACCESS')) {
     exit();
 }
 
-$styles = ['card'];
-$scripts = ['recipeType'];
+$styles = ['recipe/add/card'];
+$scripts = ['recipeType','tooltip'];
 
 // Inclusions des fichiers nécessaires.
 include 'includes/header.php';
 include  'class/formInput.php';
 include 'includes/connection.php';
 include 'models/recipeType.php';
+
+// Etape actuel
+if(!isset($_SESSION['step1'])){
+    $_SESSION['step1'] = false;
+}
 
 // Création d'un champ de saisie pour le nom de la recette.
 $inputName = (new Input('name', 'Nom de la recette'));
@@ -33,7 +38,6 @@ if ($recipeType['success']) {
 }
 
 // Si le nom du plat existe déjà on recharge la page avec le nom du plat déjà saisie et le type de plat
-var_dump($_SESSION);
 if (isset($_SESSION['message'])) {
     $inputName = $inputName->setErrorMessage($_SESSION['message'])->setValue($_SESSION['nom_plat']);
     unset($_SESSION['message']);
@@ -62,38 +66,59 @@ function addType($type): string
 
 ?>
 <main>
-    <div class="card myCard">
-        <div class="card-body">
-            <form action="controllers/recipe/add/step1.php" method="post">
-                <h5 class="myh5">Ajouter une recette</h5>
-                <?php echo $inputName->render() ?>
-                <hr>
-                <h5 class="myh5">Type(s) de plas</h5>
-                <div id="recipeTypes" class="me-1 mb-1">
-                    <?php
-                    // Vérifier et afficher les types de plats déjà sélectionnés
-                    if (isset($_SESSION['types_plat']) && is_array($_SESSION['types_plat'])) {
-                        foreach ($_SESSION['types_plat'] as $type) {
-                            echo addType(htmlspecialchars($type));
-                        }
-                        unset($_SESSION['types_plat']);
-                    }
+    <div class="container">
+        <div class="row">
+            <!-- Progression -->
+            <?php include 'views/recipe/add/step_status.php' ?>
+            <!-- Aperçs Recette -->
+            <?php include 'views/recipe/add/recipe_card.php' ?>
+            <!-- Formulaire -->
+            <div class="col-12 col-md-6">
+                <div class="card myCard">
+                    <div class="card-body">
+                        <form action="controllers/recipe/add/step1.php" method="post">
+                            <h5 class="myh5">Ajouter une recette</h5>
+                            <?php echo $inputName->render() ?>
+                            <hr>
+                            <h5 class="myh5">Type(s) de plas</h5>
+                            <div id="recipeTypes" class="me-1 mb-1">
+                                <?php
+                                // Vérifier et afficher les types de plats déjà sélectionnés
+                                if (isset($_SESSION['types_plat']) && is_array($_SESSION['types_plat'])) {
+                                    foreach ($_SESSION['types_plat'] as $type) {
+                                        echo addType(htmlspecialchars($type));
+                                    }
+                                    unset($_SESSION['types_plat']);
+                                }
 
-                    ?>
-                </div>
-                <?php echo $inputType ?>
-                <?php echo  $dataList ?>
-                <div class="row justify-content-between">
-                    <div class="col-auto">
+                                ?>
+                            </div>
+                            <?php echo $inputType ?>
+                            <?php echo  $dataList ?>
+                            <div class="row justify-content-between">
+                                <div class="col-auto">
+                                </div>
+                                <div class="col-auto">
+                                    <input type="submit" class="btn btn-primary myButton" value="Suivant">
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="col-auto">
-                        <input type="submit" class="btn btn-primary myButton" value="Suivant">
-                    </div>
+
                 </div>
-            </form>
+            </div>
         </div>
-
     </div>
+
+
+
+
+
+
+
+
+
+
 </main>
 <?php
 // Inclusion du fichier de pied de page (footer).

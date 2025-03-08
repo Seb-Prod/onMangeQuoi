@@ -31,8 +31,8 @@ body {
 main {
     flex: 1 0 auto;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    justify-content: center; 
     background: var(--couleurFond);
 }
 
@@ -72,11 +72,7 @@ main {
     max-width: 100%;
 }
 
-.myCard {
-    width: 95%; /* Ou une largeur fixe si besoin, exemple : 400px */
-    max-width: 400px; /* Adapte selon la taille souhaitée */
-    margin: auto;
-}
+
 
 .error {
     margin-top: 20px;

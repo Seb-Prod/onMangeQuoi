@@ -1,0 +1,24 @@
+.step-line {
+    width: 50px; /* Longueur fixe du trait */
+    height: 2px;
+    background-color: #ccc;
+}
+
+.step-link {
+    position: relative;
+}
+
+.step-link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%; /* Déplace le début du trait à la fin du lien actuel */
+    width: 100%; /* Ajustez la longueur du trait selon vos besoins */
+    height: 2px;
+    background-color: #ccc; /* Couleur du trait */
+    transform: translateY(-50%);
+}
+
+.step-link:last-child::after {
+    display: none; /* Cache le trait après le dernier lien */
+}

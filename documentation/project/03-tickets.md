@@ -56,20 +56,26 @@
 - **Description**: Créer un formulaire complet pour l'ajout de recettes
 
 #### Critères de Validation
-- [x] Champs pour titre de la recette
-- [ ] Liste dynamique d'ingrédients
-- [ ] Ajout d'ingredient
-- [ ] Liste dynamique des unités
-- [ ] Étapes de préparation
-- [ ] Ajout d'étapes
-- [x] Temps de préparation, repos et cuisson
-- [ ] Catégorisation (type de plat, régime)
-- [ ] Validation côté client et serveur
+- [x] Step 1 - Formulaire de saisie du nom et du type de plats
+- [x] Step 1 - Soumission du formulaire
+- [x] Step 2 - Formulaire de saisie des temps de préparation
+- [ ] Step 2 - Soumission du formulaire
+- [ ] Step 3 - Formulaire de saisie des ingrédients
+- [ ] Step 3 - Soumission du formulaire
+- [ ] Step 4 - Formulaire de saisie des étapes de préparation
+- [ ] Step 4 - Soumission du formulaire
+- [ ] Step 5 - Envoie de la recette sur le serveur
+- [ ] Step 5 - Page de validation de l'envoie de la recette
+- [ ] Bar de progession de la saisie de la recette
+- [ ] Aperçus de la recette à chaque étape
+- [ ] CSS
+- [ ] Documentations
 
 #### Tests à Réaliser
 - Ajout d'une recette complète
 - Ajout d'une recette avec champs incomplets
 - Validation des formats de données
+- Validation W3C
 
 ### Ticket #004 - Système de Recherche de Recettes
 - **Statut**: 🔴 À faire

@@ -57,12 +57,7 @@ main {
 }
 
 
-#recipeTypes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Espacement entre les éléments */
-    max-width: 100%; /* Empêche l'élargissement */
-}
+
 
 .ingredient-row {
     display: flex;

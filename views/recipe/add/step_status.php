@@ -18,7 +18,7 @@ function setStep(int $n, $texte, $link = "#")
     }
 
     $html = <<<HTML
-        <a href="{$link}" type="button" class="btn step-link" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{$texte}">
+        <a href="{$link}" class="btn step-link" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{$texte}">
             <span class="badge rounded-pill bg-{$color}">
                 {$n}
             </span>
@@ -36,7 +36,7 @@ function setStep(int $n, $texte, $link = "#")
             <h5 class="myh5 text-center">Ajout d'une recette</h5>
             <div class="container">
                 <div class="d-flex justify-content-center align-items-center">
-                    <?php echo setStep(1, "Information", "recipeadd"); ?>
+                    <?php echo setStep(1, "Information", "recipestep1"); ?>
                     <div class="step-line"></div>
                     <?php echo setStep(2, "Temps de préparation", "recipestep2"); ?>
                     <div class="step-line"></div>

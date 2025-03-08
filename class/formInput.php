@@ -314,6 +314,11 @@ class Input
         return $this;
     }
 
+    public function setId(string $id):self{
+        $this->id = $id;
+        return $this;
+    }
+
     public function render()
     {
         //Les attribues de l'input

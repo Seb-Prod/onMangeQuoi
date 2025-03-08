@@ -56,7 +56,7 @@ $planning = [
                 <section>
                     <h2 class="h4 text-primary mb-3">🚀 Actions rapides</h2>
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="?page=recipeadd" class="btn btn-success">➕ Ajouter une recette</a>
+                        <a href="?page=recipestep1" class="btn btn-success">➕ Ajouter une recette</a>
                         <a href="?page=generer-liste-courses" class="btn btn-warning">🛒 Générer ma liste de courses</a>
                     </div>
                 </section>

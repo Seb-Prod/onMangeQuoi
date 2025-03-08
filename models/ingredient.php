@@ -9,13 +9,16 @@ class Ingredient{
 
     public function get():array{
         try{
-            $sql = "SELECT * FROM ingredints";
+            $sql = "SELECT nom FROM ingredients";
             $stmt  = $this->pdo->prepare($sql);
             $stmt->execute();
-            $ingredient = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_NUM);
 
-            if($ingredient){
-                return ['success' => true, 'datas'=>$ingredient];
+            if($result){
+                $datas = array_map(function($row){
+                    return $row[0];
+                }, $result);
+                return ['success' => true, 'datas'=>$datas];
             }else{
                 return ['success' => true,
                 'datas'=>[]];

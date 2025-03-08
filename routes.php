@@ -44,7 +44,7 @@ $routes = [
 ];
 
 // routes de l'ajout de recettes
-$routes['recipeadd'] = ['adresse' => 'views/recipe/add/step1_name_type.php'];
+$routes['recipestep1'] = ['adresse' => 'views/recipe/add/step1_name_type.php'];
 $routes['recipestep2'] = ['adresse' => 'views/recipe/add/step2_preparation_time.php'];
 $routes['recipestep3'] = ['adresse' => 'views/recipe/add/step3_ingredients.php'];
 $routes['recipestep4'] = ['adresse' => 'views/recipe/add/step4_steps'];

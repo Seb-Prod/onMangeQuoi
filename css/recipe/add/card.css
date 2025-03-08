@@ -22,3 +22,18 @@
 .step-link:last-child::after {
     display: none; /* Cache le trait après le dernier lien */
 }
+
+
+#recipeTypes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacement entre les éléments */
+    max-width: 100%; /* Empêche l'élargissement */
+}
+
+#recipeIngredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacement entre les éléments */
+    max-width: 100%; /* Empêche l'élargissement */
+}

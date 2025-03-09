@@ -1,19 +1,4 @@
 <?php
-/**
- * Fichier : step1_name_type.php
- * Objectif : Formulaire d'ajout de recette - Étape 1 : Le nom de la recette et du type (pour les filtres).
- * Description : Ce fichier gère l'affichage et le traitement du formulaire pour ajouter les le nom et les filtres d'une recette.
- * Dépendances :
- * - class/formInput.php : Classe pour la création de champs de formulaire.
- * - includes/connection.php : Connexion à la base de données.
- * - models/recipeType.php : Modèle pour la gestion des types.
- * - views/includes/header.php : Inclusion de l'en-tête HTML.
- * - views/includes/footer.php : Inclusion du pied de page HTML.
- * - views/recipe/add/step_status.php : Vue pour l'affichage de la progression.
- * - views/recipe/add/recipe_card.php : Vue pour l'aperçu de la recette.
- * - controllers/recipe/add/step1.php : Contrôleur pour le traitement des données du formulaire.
- */
-
 // Vérification de l'accès sécurisé pour empêcher l'accès direct au fichier.
 if (!defined('SECURE_ACCESS')) {
     header("Location: ../../../index.php?page=er");

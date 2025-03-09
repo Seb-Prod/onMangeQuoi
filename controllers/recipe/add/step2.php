@@ -1,11 +1,4 @@
 <?php
-/**
- * Contrôleur pour la gestion des temps d'une recette - Étape 2
- * 
- * Ce script traite les données temporelles d'une recette (préparation, repos, cuisson)
- * et les valide avant de les stocker en session pour l'étape suivante.
- */
-
 session_start();
 
 // Vérification de la méthode d'accès
@@ -84,8 +77,7 @@ foreach ($timeFields as $fieldName => $fieldData) {
 // Gestion des erreurs
 if ($validationErrors) {
     // Stocker les données soumises pour les réafficher dans le formulaire
-    $_SESSION['form_data'] = $_POST;
-    $_SESSION['form_error'] = "Veuillez saisir des valeurs valides pour les temps.";
+    $_SESSION['message'] = "Veuillez saisir des valeurs valides pour les temps.";
     
     // Redirection vers la page du formulaire
     header("Location: ../../../index.php?page=recipestep2");

@@ -1,19 +1,4 @@
 <?php
-
-/**
- * Fichier : step2_preparation_time.php
- * Objectif : Formulaire d'ajout de recette - Étape 2 : Les temps de la préparations.
- * Description : Ce fichier gère l'affichage et le traitement du formulaire pour ajouter les temps de préparation d'une recette.
- * Dépendances :
- * - class/formInput.php : Classe pour la création de champs de formulaire.
- * - includes/connection.php : Connexion à la base de données.
- * - views/includes/header.php : Inclusion de l'en-tête HTML.
- * - views/includes/footer.php : Inclusion du pied de page HTML.
- * - views/recipe/add/step_status.php : Vue pour l'affichage de la progression.
- * - views/recipe/add/recipe_card.php : Vue pour l'aperçu de la recette.
- * - controllers/recipe/add/step2.php : Contrôleur pour le traitement des données du formulaire.
- */
-
 // Vérification de l'accès sécurisé pour empêcher l'accès direct au fichier.
 if (!defined('SECURE_ACCESS')) {
     header("Location: ../../../index.php?page=er");

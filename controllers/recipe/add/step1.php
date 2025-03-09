@@ -1,11 +1,4 @@
 <?php
-/**
- * Contrôleur pour la gestion des type et du nom de la recette - Étape 1
- * 
- * Ce script traite les types d'une recette et son nom 
- * et les valide avant de les stocker en session pour l'étape suivante.
- */ 
-
 session_start();
 
 // Vérification que la requête est bien de type POST et que le champ 'name' est présent

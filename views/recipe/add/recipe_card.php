@@ -71,6 +71,9 @@ function getTime(float $time): string {
                 Cuisson : <?php echo getTime($cuisson) ?>
             </p>
             <hr>
+            <pre>
+                <?php echo var_dump($_SESSION)?>
+            </pre>
         </div>
     </div>
 </div>

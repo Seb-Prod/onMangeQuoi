@@ -92,7 +92,7 @@ function setupDynamicElements(
    * @param {Event} event - L'événement de clic.
    */
   function handleTypeRemoval(event) {
-    if (event.target.classList.contains("remove-type")) {
+    if (event.target.classList.contains("remove")) {
       const row = event.target.closest(".type-row");
 
       if (row) {

@@ -1,3 +1,5 @@
+/* Barre de progression */
+
 .step-line {
     width: 50px; /* Longueur fixe du trait */
     height: 2px;
@@ -23,11 +25,68 @@
     display: none; /* Cache le trait après le dernier lien */
 }
 
+/* Card */
+.myCard {
+    border: none;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+/* Input */
+.myInput {
+    border: solid 1px var(--couleurTexte);
+    font-size: 12px;
+}
+
+.myLabel {
+    background: var(--couleurFond);
+    border: solid 1px var(--couleurTexte);
+    color: var(--couleurTexte);
+    font-size: 12px;
+}
+
+.btnAdd{
+    color: var(--couleurTexte);
+}
+
+/* Label */
+.label{
+    color:var(--couleurTexte);
+    text-align: center;
+}
+
+/* texte information vide */
+#emptyItem{
+    color: green;
+    width: 100%;
+    text-align: center;
+}
+
+/*  Bouton avec badge du suppresion */
+.badgeBtn {
+    background: var(--couleurFond);
+    cursor:default;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+.badgeBtn:hover{
+    background: var(--couleurFond);
+}
+.remove{
+    color:red;
+}
+.remove:hover{
+    color:black;
+}
+
+.myError{
+    font-size: 12px;
+    color: red;
+}
 
 #recipeTypes {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* Espacement entre les éléments */
+    gap: 20px; /* Espacement entre les éléments */
     max-width: 100%; /* Empêche l'élargissement */
 }
 

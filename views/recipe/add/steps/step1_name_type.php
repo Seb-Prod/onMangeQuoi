@@ -5,73 +5,56 @@ if (!defined('SECURE_ACCESS')) {
     exit();
 }
 
-// Ajout des feuilles de styles
+// Configuration de la page
 $styles = ['recipe/add/card'];
-
-// Ajout de script
-$scripts = ['recipe/add/addElements', 'recipe/add/addTypes'];
+$scripts = ['recipe/add/addTypes'];
 
 // Inclusions des fichiers nécessaires.
 include 'views/includes/header.php';
 include 'class/formInput.php';
 include 'includes/connection.php';
 include 'models/recipeType.php';
+include_once __DIR__ . '/../functions/getList.php';
+include_once __DIR__ . '/../components/renderItem.php';
 
-// Vérification de l'étape actuelle
+// Initialisation de l'étape
 if (!isset($_SESSION['step1'])) {
     $_SESSION['step1'] = false;
 }
 
-/**
- * Génère un boutton avec une pastille pour supprimer l'item
- *
- * @param [type] $type Type de plats
- * @return string Le HTML du groupe de boutton
- */
-function addType($type): string
-{
-    return <<<HTML
-        <div class="type-row">
-            <span class="btn btn-sm btn-primary position-relative green">
-                {$type}
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    <button type="button" class="btn btn-danger btn-sm remove-type p-0" style="font-size: 0.7rem; line-height: 1;">
-                        X
-                    </button>
-                </span>
-                <input type="hidden" name="types[]" value="{$type}">
-            </span>
-        </div>
-    HTML;
-}
-
-// Récupération des types de plats depuis la base de données
-$recipeTypeModel = new RecipeType($pdo);
-$recipeTypeData = $recipeTypeModel->getTypesSimple();
-$dataList = $recipeTypeData['success'] ? (new FormDataList("recipeType", $recipeTypeData['datas']))->render() : '';
+// Récupération des types de plats
+$listType = getList($pdo, 'recipeType');
 
 // Initialisation des inputs
-$inputName = new Input('name', 'Nom de la recette');
-$inputType = (new Input('types[]', 'Sélectionner le type de plat'))
+$inputName = new Input('name', 'Nom de la recette', 'Saisir le nom de la recette');
+$inputType = (new Input('type', 'Type de plat', 'Sélectionner le type de plat'))
     ->addList('recipeType')
-    ->addButton('type', '+')
+    ->addButton('type')
     ->setRequired(false)
     ->render();
 
-// Gestion des erreurs et des valeurs précédemment saisies
-if (isset($_SESSION['message'])) {
-    $inputName = $inputName->setErrorMessage($_SESSION['message'])->setValue($_SESSION['nom_plat']);
-    unset($_SESSION['message'], $_SESSION['nom_plat']);
+// Initialisation des variables
+$errorName = '';
+$types = [];
+$emptyItem = '<span id="emptyItem">Aucun type de choisie</span>';
+
+// Gestion des erreurs
+if (isset($_SESSION['error']['step1'])) {
+    $inputName->setValue($_SESSION['error']['step1']['nom_plat']);
+    $errorName = '<span class="myError">' . $_SESSION['error']['step1']['message'] . '</span>';
+    unset($_SESSION['error']['step1']);
 }
 
-// Récupération du nom du plat si retour sur la page
-if (isset($_SESSION['nom_plat'])) {
-    // Nettoyage et validation des données
-    $nomPlat = htmlspecialchars($_SESSION['nom_plat'], ENT_QUOTES, 'UTF-8');
-    $inputName->setValue($nomPlat);
-} else {
-    $nomPlat = "";
+// Récupération des données de session si elles existent
+if (isset($_SESSION['recipe']['nom_plat']) && $_SESSION['recipe']['nom_plat'] != '') {
+    $inputName->setValue($_SESSION['recipe']['nom_plat']);
 }
+
+if (isset($_SESSION['recipe']['types_plat']) && is_array($_SESSION['recipe']['types_plat']) && !empty($_SESSION['recipe']['types_plat'])) {
+    $types = $_SESSION['recipe']['types_plat'];
+    $emptyItem = '';
+}
+
 
 ?>
 
@@ -80,27 +63,25 @@ if (isset($_SESSION['nom_plat'])) {
         <div class="row">
             <!-- Progression -->
             <?php include 'views/recipe/add/step_status.php' ?>
-            
             <!-- Aperçu Recette -->
             <?php include 'views/recipe/add/recipe_card.php' ?>
-            
             <!-- Formulaire -->
             <div class="col-12 col-md-6">
                 <div class="card myCard">
                     <div class="card-body">
                         <form action="controllers/recipe/add/step1.php" method="post">
                             <!-- Titre de la card -->
-                            <h5 class="myh5">Informations sur la recette</h5>
+                            <h5 class="label">Informations sur la recette</h5>
                             <!-- Input de saisie du nom -->
                             <?php echo $inputName->render() ?>
+                            <?php echo $errorName ?>
                             <hr>
                             <!-- Affichage des type de plat déjà ajouté -->
                             <div id="recipeTypes" class="me-1 mb-1">
                                 <?php
-                                if (isset($_SESSION['types_plat']) && is_array($_SESSION['types_plat'])) {
-                                    foreach ($_SESSION['types_plat'] as $type) {
-                                        echo addType(htmlspecialchars($type));
-                                    }
+                                echo $emptyItem;
+                                foreach ($types as $type) {
+                                    echo addType($type);
                                 }
                                 ?>
                             </div>
@@ -108,8 +89,8 @@ if (isset($_SESSION['nom_plat'])) {
                             <!-- Input saisie du type de plat -->
                             <?php echo $inputType ?>
                             <!-- Ajout des option (liste des plats déjà en bdd) -->
-                            <?php echo $dataList ?>
-                            
+                            <?php echo $listType ?>
+
                             <div class="row justify-content-end mt-3">
                                 <div class="col-auto">
                                     <!-- Soumission du formulaire -->

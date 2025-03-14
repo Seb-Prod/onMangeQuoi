@@ -247,6 +247,7 @@ class Input
 {
     private string $type = "text";
     private string $value = "";
+    private string $label = "";
     private string $placeholder;
     private bool $required = true;
     private string $name;
@@ -254,20 +255,21 @@ class Input
     private ?bool $whithButton = null;
     private ?string $listName = null;
     private string $idButton;
-    private string $textButton;
-    private ?string $errorMessage = null;
     private float $min = 0;
     private float $max = 59;
+    private float $step = 1;
+    private bool $whithLabel = true;
 
-    public function __construct(string $name, string $placeholder)
+    public function __construct(string $name, string $label, string $placeholder = '')
     {
         $this->name = $name;
+        $this->label = $label;
         $this->placeholder = $placeholder;
         $unique_id = uniqid();
         $this->id = $name . $unique_id;
     }
 
-    public function addList(string $listName):self
+    public function addList(string $listName): self
     {
         $this->listName = $listName;
         return $this;
@@ -280,42 +282,60 @@ class Input
         return $this;
     }
 
-    public function addButton(string $idButton, string $textButton):self
+    public function addButton(string $idButton): self
     {
         $this->whithButton = true;
         $this->idButton = $idButton;
-        $this->textButton = $textButton;
-        $this->id = 'input-'.$idButton;
+        $this->id = 'input-' . $idButton;
         return $this;
     }
 
-    public function setValue(string $value):self{
+    public function setValue(string $value): self
+    {
         $this->value = $value;
         return $this;
     }
 
-    public function setErrorMessage(string $errorMessage): self {
-        $this->errorMessage = $errorMessage;
-        return $this;
-    }
-
-    public function setMin(float $min):self{
+    public function setMin(float $min): self
+    {
         $this->min = $min;
         return $this;
     }
 
-    public function setMax(float $max):self{
+    public function setMax(float $max): self
+    {
         $this->max = $max;
         return $this;
     }
 
-    public function setType(string $type):self{
+    public function setStep(float $step):self{
+        $this->step = $step;
+        return $this;
+    }
+
+    public function setType(string $type): self
+    {
         $this->type = $type;
         return $this;
     }
 
-    public function setId(string $id):self{
+    public function setId(string $id): self
+    {
         $this->id = $id;
+        return $this;
+    }
+
+    public function setTime(int $minutes): self
+    {
+        $heure = floor($minutes / 60);
+        $minutes_restantes = $minutes % 60;
+        $this->value = sprintf('%02d:%02d', $heure, $minutes_restantes);
+        return $this;
+    }
+
+    public function setWhithLabel(bool $label): self
+    {
+        $this->whithLabel = $label;
         return $this;
     }
 
@@ -323,7 +343,7 @@ class Input
     {
         //Les attribues de l'input
         $attributes = [
-            'class' => "form-control",
+            'class' => "form-control myInput",
             'type' => $this->type,
             'placeholder' => $this->placeholder,
             'id' => $this->id,
@@ -338,17 +358,14 @@ class Input
             $attributes['required'] = true;
         }
 
-        if ($this->value !== null) { 
+        if ($this->value !== null) {
             $attributes['value'] = htmlspecialchars($this->value);
         }
 
-        if ($this->errorMessage) {
-            $attributes['class'] .= ' is-invalid';
-        }
-
-        if($this->type === 'number'){
+        if ($this->type === 'number') {
             $attributes['min'] = $this->min;
             $attributes['max'] = $this->max;
+            $attributes['step'] = $this->step;
         }
 
         //Convetion du tableau d'attribues en chaine de String
@@ -364,20 +381,20 @@ class Input
         //Si ajout bouton
         $button = '';
         if ($this->whithButton) {
-            $button = '<button type="button" id="button-' . $this->idButton . '" class="btn btn-primary ms-2">' . $this->textButton . '</button>';
+            $button = '<button type="button" id="button-' . $this->idButton . '" class="btn ms-1 btnAdd"><i class="fa-solid fa-circle-plus"></i></button>';
         }
 
-        $errorDiv = '';
-        if ($this->errorMessage) {
-            $errorDiv = '<div class="invalid-feedback">' . htmlspecialchars($this->errorMessage) . '</div>';
+        //si avec label
+        $label = '';
+        if ($this->whithLabel) {
+            $label = '<span class="input-group-text myLabel">' . htmlspecialchars($this->label) . '</span>';
         }
 
         $html = <<<HTML
-        <div class="d-flex align-items-center mb-3 ">
-            <div class="form-floating flex-grow-1 has-validation">
+        <div class="d-flex align-items-center mb-1 ">
+            <div class="input-group mb-1">
+                {$label}
                 <input {$attributeString}>
-                <label for="{$this->id}">{$this->placeholder}</label>
-                {$errorDiv}
             </div>
             {$button}
         </div>

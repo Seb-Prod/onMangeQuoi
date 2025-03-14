@@ -7,25 +7,7 @@ class RecipeType{
         $this->pdo = $pdo;
     }
 
-    public function getTypes(){
-        try{
-            $sql = "SELECT * FROM types_plat";
-            $stmt  = $this->pdo->prepare($sql);
-            $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            if($result){
-                return ['success' => true, 'datas'=>$result];
-            }else{
-                return ['success' => true,
-                'datas'=>[]];
-            }
-        }catch(PDOException $e){
-            return ['success'=>false, 'message' => "Une erreur est survenue. Veuillez réesayer plus tard."];
-        }
-    }
-
-    public function getTypesSimple(){
+    public function get(){
         try{
             $sql = "SELECT nom_type FROM types_plat";
             $stmt  = $this->pdo->prepare($sql);
